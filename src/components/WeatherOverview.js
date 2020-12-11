@@ -6,7 +6,6 @@ import { WeatherContext } from '../contexts/WeatherContext'
 const WeatherOverview = () => {
     const { state, dispatch } = useContext(WeatherContext)
     const [timeAndDate, setTimeAndDate] = useState(format(new Date(), "H:m eee do MMM yyyy"))
-    const [option, setOption] = useState(null)
 
     setInterval(() => {
         setTimeAndDate(format(new Date(), "H:mm eee do MMM yyyy"))

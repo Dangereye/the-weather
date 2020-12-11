@@ -1,5 +1,4 @@
 import React, { useState, useContext } from 'react'
-import { format } from 'date-fns'
 import { WeatherContext } from '../../contexts/WeatherContext'
 import Astronomy from './Astronomy'
 import CurrentWeather from './CurrentWeather'

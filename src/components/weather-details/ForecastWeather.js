@@ -4,7 +4,7 @@ import { WeatherContext } from '../../contexts/WeatherContext';
 
 const ForecastWeather = () => {
     const [day, setDay] = useState(0)
-    const { state, dispatch } = useContext(WeatherContext);
+    const { state } = useContext(WeatherContext);
 
     const previousDay = () => {
         if (day > 0) {
