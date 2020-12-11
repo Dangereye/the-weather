@@ -1,6 +1,14 @@
 header {
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
+    justify-content: space-between;
+  }
+
   .logo {
-    font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+    font-size: $font-size-large;
     font-weight: 600;
   }
 }

@@ -1,0 +1,42 @@
+.weather-overview {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 2rem;
+  cursor: pointer;
+
+  .info {
+    display: flex;
+    align-items: flex-end;
+    gap: 2rem;
+  }
+
+  .temperature {
+    margin-bottom: -6px;
+    font-size: 8rem;
+    font-weight: 600;
+  }
+
+  .location {
+    text-transform: capitalize;
+    font-size: clamp(2.4rem, 5vw, 4.2rem);
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  .time {
+    font-size: $font-size-small;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  .condition {
+    .icon {
+    }
+    .text {
+      font-size: $font-size-small;
+      font-weight: 600;
+      text-align: center;
+    }
+  }
+}
