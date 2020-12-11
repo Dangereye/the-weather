@@ -1,8 +1,10 @@
 import React, { useState, useContext } from 'react'
+import { format } from 'date-fns'
 import { WeatherContext } from '../../contexts/WeatherContext'
 import Astronomy from './Astronomy'
 import CurrentWeather from './CurrentWeather'
 import ForecastWeather from './ForecastWeather'
+import HourlyWeather from './HourlyWeather'
 
 const WeatherDetails = () => {
     const [location, setLocation] = useState('')
@@ -40,8 +42,9 @@ const WeatherDetails = () => {
                         <button onClick={() => setTab('astro')}>Astronomy</button>
                     </div>
                     <div className="info">
-                        {tab === 'now' ? <CurrentWeather /> : tab === '3 days' ? <ForecastWeather /> : <Astronomy />}
+                        {tab === 'now' ? <><CurrentWeather /><HourlyWeather /></> : tab === '3 days' ? <ForecastWeather /> : <Astronomy />}
                     </div>
+
                 </div>
                 <div className="close" onClick={() => dispatch({ type: 'HIDE_DETAILS' })}>
                     <i className="far fa-times-circle"></i>

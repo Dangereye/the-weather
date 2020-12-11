@@ -1,6 +1,3 @@
-#weather-details {
-}
-
 .weather-details {
   position: fixed;
   top: 0;
@@ -38,6 +35,12 @@
     }
   }
 
+  .info {
+    > *:not(:last-child) {
+      padding-bottom: clamp(4rem, 2.5vw, 8rem);
+    }
+  }
+
   .location {
     form {
       display: flex;
@@ -49,6 +52,30 @@
         background-color: $primary-color;
         color: $text-color-light;
       }
+    }
+  }
+  .swiper-container {
+    overflow: hidden;
+    // border: 1px solid red;
+  }
+
+  .swiper-wrapper {
+    display: flex;
+    width: 575%;
+    gap: 3rem;
+    // border: 1px solid green;
+  }
+
+  .swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 1rem;
+    // border: 1px solid blue;
+
+    img {
+      width: 100%;
     }
   }
 

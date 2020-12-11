@@ -25,9 +25,6 @@ a {
 body {
   font-size: clamp(1.6rem, 2.5vw, 2rem);
   width: 100%;
-  max-width: 100%;
-  height: 100vh;
-  overflow-wrap: hidden;
 }
 
 header,
@@ -173,6 +170,10 @@ main .container {
   padding: 1.2rem 0;
 }
 
+.weather-details .info > *:not(:last-child) {
+  padding-bottom: clamp(4rem, 2.5vw, 8rem);
+}
+
 .weather-details .location form {
   display: flex;
 }
@@ -185,6 +186,28 @@ main .container {
   padding: 0 1.6rem;
   background-color: #d37217;
   color: #fafafa;
+}
+
+.weather-details .swiper-container {
+  overflow: hidden;
+}
+
+.weather-details .swiper-wrapper {
+  display: flex;
+  width: 575%;
+  gap: 3rem;
+}
+
+.weather-details .swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.weather-details .swiper-slide img {
+  width: 100%;
 }
 
 .weather-details .close {
