@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { WeatherContext } from '../../contexts/WeatherContext'
 
 const Astronomy = () => {
-    const { state, dispatch } = useContext(WeatherContext)
+    const { state } = useContext(WeatherContext)
     return (
         <div>
             <h3 className='details-title'>Astronomy</h3>

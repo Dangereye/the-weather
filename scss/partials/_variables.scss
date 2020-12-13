@@ -5,7 +5,10 @@ $font-size-small: clamp(1.4rem, 2.5vw, 1.6rem);
 
 // Font colours
 $text-color-dark: rgb(42, 42, 42);
-$text-color-light: rgb(250, 250, 250);
+$text-color-bright: rgb(250, 250, 250);
+$text-color-light: darken($text-color-bright, 20%);
+
+$text-color-link: darken($text-color-bright, 20%);
 
 // Colours
 $primary-color: rgb(211, 114, 23);

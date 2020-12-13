@@ -9,4 +9,8 @@ footer {
     font-size: $font-size-small;
     font-weight: 400;
   }
+  a {
+    color: $text-color-link;
+    text-decoration: underline;
+  }
 }
