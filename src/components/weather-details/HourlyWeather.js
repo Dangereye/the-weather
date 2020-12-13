@@ -16,7 +16,7 @@ const HourlyWeather = () => {
                         <SwiperSlide key={item.time}>
                             <div>{item.temp_c}&deg;c</div>
                             <img src={item.condition.icon} alt={item.condition.text} />
-                            <div>{format(new Date(item.time), "H:mm")}</div>
+                            <div>{format(new Date(item.time), 'H:mm')}</div>
                         </SwiperSlide>
                     )
                 })

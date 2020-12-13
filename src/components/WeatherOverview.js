@@ -8,7 +8,7 @@ const WeatherOverview = () => {
     const [timeAndDate, setTimeAndDate] = useState(format(new Date(), "H:m eee do MMM yyyy"))
 
     setInterval(() => {
-        setTimeAndDate(format(new Date(), "H:mm eee do MMM yyyy"))
+        setTimeAndDate(format(new Date(), 'H:mm eee do MMM yyyy'))
     }, 1000)
 
     useEffect(() => {
@@ -28,19 +28,16 @@ const WeatherOverview = () => {
 
     if (!state.loading) {
         return (
-            <div className='weather-overview' onClick={() => dispatch({ type: 'SHOW_DETAILS' })}>
+            <div className='weather-overview'>
                 <div className='temperature'>{state.weather.current.temp_c}&deg;c</div>
                 <div className='info'>
                     <div>
                         <h2 className='location'>{state.weather.location.name}</h2>
                         <p className='time'>{timeAndDate}</p>
                     </div>
-                    <div className='condition'>
-                        <div className='icon'>
-                            <img src={state.weather.current.condition.icon} alt="icon" />
-                        </div>
-                        <div className='text'>{state.weather.current.condition.text}</div>
-                    </div>
+                    <button className='details-button' onClick={() => dispatch({ type: 'SHOW_DETAILS' })}>
+                        <i className="fas fa-chevron-left"></i>
+                    </button>
                 </div>
             </div >
         )

@@ -15,6 +15,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  overflow-y: scroll;
 
   .content {
     > *:not(:last-child) {
@@ -50,7 +51,7 @@
       button {
         padding: 0 1.6rem;
         background-color: $primary-color;
-        color: $text-color-light;
+        color: $text-color-bright;
       }
     }
   }
@@ -82,26 +83,26 @@
   .close {
     width: 100%;
     text-align: center;
-    i {
-      font-size: clamp(2.4rem, 5vw, 4.7rem);
-      cursor: pointer;
-    }
+    cursor: pointer;
   }
 }
 
 .weather-details.active {
   transform: translateX(0);
 }
+
 .details-title {
   margin-bottom: 2rem;
+  color: $text-color-bright;
 }
 
 .condition-group {
   padding: 1rem 0;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 
-  *:first-child {
-    color: darken($text-color-light, 15%);
+  *:last-child {
+    color: $text-color-bright;
   }
 }

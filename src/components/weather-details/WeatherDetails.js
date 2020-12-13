@@ -29,7 +29,7 @@ const WeatherDetails = () => {
                                 name='location'
                                 value={location}
                                 onChange={(e) => setLocation(e.target.value)}
-                                placeholder='Location'
+                                placeholder='New Location'
                                 autoComplete='off'
                                 required />
                             <button type='submit'><i className="fas fa-search"></i></button>
@@ -46,7 +46,7 @@ const WeatherDetails = () => {
 
                 </div>
                 <div className="close" onClick={() => dispatch({ type: 'HIDE_DETAILS' })}>
-                    <i className="far fa-times-circle"></i>
+                    Close
                 </div>
             </div>
         )

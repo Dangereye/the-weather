@@ -2,12 +2,11 @@
   width: 100%;
   max-width: 100%;
   min-height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
 
   display: grid;
   grid-template-rows: auto 1fr auto;
   background-image: url(img/cloudy.jpg);
   background-size: cover;
   background-position: center;
-  color: #fff;
 }
