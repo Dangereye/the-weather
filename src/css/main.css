@@ -42,7 +42,7 @@ footer {
   padding: 2rem 1.6rem;
 }
 
-form input {
+input {
   padding: 1.2rem;
   font-size: clamp(1.6rem, 2.5vw, 2rem);
   color: #2a2a2a;
@@ -50,18 +50,26 @@ form input {
   outline: none;
 }
 
-form ::placeholder {
+input[type='radio'] {
+  margin-right: 1rem;
+}
+
+::placeholder {
   color: #6a6a6a;
 }
 
 button {
   border: none;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #c7c7c7;
   outline: none;
   cursor: pointer;
+  transition: color 0.4s ease;
 }
 
-button i {
-  font-size: clamp(1.6rem, 2.5vw, 2rem);
+button:hover {
+  color: #fafafa;
 }
 
 .app {
@@ -134,7 +142,6 @@ main .container {
   padding: 2rem;
   background: linear-gradient(145deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6));
   border-left: 2px solid rgba(255, 255, 255, 0.2);
-  color: #fafafa;
 }
 
 .weather-details {
@@ -143,7 +150,7 @@ main .container {
   right: 0;
   width: 100%;
   max-width: 45rem;
-  min-height: 100vh;
+  height: 100vh;
   background: linear-gradient(145deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6));
   backdrop-filter: blur(8px);
   background-blend-mode: overlay;
@@ -166,13 +173,10 @@ main .container {
   justify-content: space-between;
 }
 
-.weather-details .tabs > *:not(:last-child) {
-  border-right: 2px dotted #aaaaaa;
-}
-
 .weather-details .tabs button {
-  flex: 1;
-  padding: 1.2rem 0;
+  font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+  background-color: transparent;
+  transition: color 0.4s ease;
 }
 
 .weather-details .info > *:not(:last-child) {
@@ -204,6 +208,7 @@ main .container {
 }
 
 .weather-details .swiper-slide {
+  min-width: max-content;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -215,10 +220,11 @@ main .container {
   width: 100%;
 }
 
-.weather-details .close {
+.weather-details button.close {
   width: 100%;
+  margin-top: 4rem;
+  background-color: transparent;
   text-align: center;
-  cursor: pointer;
 }
 
 .weather-details.active {
@@ -239,6 +245,19 @@ main .container {
 
 .condition-group *:last-child {
   color: #fafafa;
+}
+
+h5 {
+  margin: 1rem 0;
+  color: #fafafa;
+  font-weight: 500;
+}
+
+.options-group {
+  padding: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 footer .container {

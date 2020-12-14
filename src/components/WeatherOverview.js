@@ -27,9 +27,13 @@ const WeatherOverview = () => {
     }, [state.location, dispatch])
 
     if (!state.loading) {
+        let _temp = state.settings.temp === 'celsius' ?
+            `${state.weather.current.temp_c}°c` :
+            `${state.weather.current.temp_f}°f`
+
         return (
             <div className='weather-overview'>
-                <div className='temperature'>{state.weather.current.temp_c}&deg;c</div>
+                <div className='temperature'>{_temp}</div>
                 <div className='info'>
                     <div>
                         <h2 className='location'>{state.weather.location.name}</h2>

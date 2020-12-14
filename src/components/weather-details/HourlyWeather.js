@@ -5,16 +5,16 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 
 const HourlyWeather = () => {
     const { state } = useContext(WeatherContext)
-
+    let _temp = state.settings.temp === 'celsius' ?
+        `${state.weather.current.temp_c}°c` :
+        `${state.weather.current.temp_f}°f`
     return (
-
-
         <Swiper className="hourly" grabCursor={true} loop={false}>
             {
                 state.weather.forecast.forecastday[0].hour.map(item => {
                     return (
                         <SwiperSlide key={item.time}>
-                            <div>{item.temp_c}&deg;c</div>
+                            <div>{_temp}</div>
                             <img src={item.condition.icon} alt={item.condition.text} />
                             <div>{format(new Date(item.time), 'H:mm')}</div>
                         </SwiperSlide>

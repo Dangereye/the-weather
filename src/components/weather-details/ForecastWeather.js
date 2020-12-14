@@ -17,6 +17,18 @@ const ForecastWeather = () => {
         }
     }
     if (!state.loading) {
+        let _maxTemp = state.settings.temp === 'celsius' ?
+            `${state.weather.forecast.forecastday[day].day.maxtemp_c}°c` :
+            `${state.weather.forecast.forecastday[day].day.maxtemp_f}°f`
+
+        let _minTemp = state.settings.temp === 'celsius' ?
+            `${state.weather.forecast.forecastday[day].day.mintemp_c}°c` :
+            `${state.weather.forecast.forecastday[day].day.mintemp_f}°f`
+
+        let _precipitation = state.settings.precipitation === 'mm' ?
+            `${state.weather.forecast.forecastday[day].day.totalprecip_mm}mm` :
+            `${state.weather.forecast.forecastday[day].day.totalprecip_in}in`
+
         return (
             <div className='forecast-weather'>
                 <h3 className='details-title'>Forecast</h3>
@@ -26,16 +38,20 @@ const ForecastWeather = () => {
                     <span onClick={nextDay}><i className="fas fa-caret-right"></i></span>
                 </div>
                 <div className='condition-group'>
-                    <span>Max Temp</span>
-                    <span>{state.weather.forecast.forecastday[day].day.maxtemp_c}&deg;c</span>
+                    <span>Max temp</span>
+                    <span>{_maxTemp}</span>
                 </div>
                 <div className='condition-group'>
-                    <span>Min Temp</span>
-                    <span>{state.weather.forecast.forecastday[day].day.mintemp_c}&deg;c</span>
+                    <span>Min temp</span>
+                    <span>{_minTemp}</span>
                 </div>
                 <div className='condition-group'>
                     <span>Chance of rain</span>
                     <span>{state.weather.forecast.forecastday[day].day.daily_chance_of_rain}%</span>
+                </div>
+                <div className='condition-group'>
+                    <span>Total rainfall</span>
+                    <span>{_precipitation}</span>
                 </div>
                 <div className='condition-group'>
                     <span>Chance of snow</span>

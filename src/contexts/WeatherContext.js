@@ -12,6 +12,8 @@ const weatherReducer = (state, action) => {
             return { ...state, details: true }
         case 'HIDE_DETAILS':
             return { ...state, details: false }
+        case 'SETTINGS':
+            return { ...state, settings: action.payload }
         default:
             return state
     }
@@ -20,12 +22,16 @@ const weatherReducer = (state, action) => {
 const WeatherContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(weatherReducer,
         {
-            location: null,
+            location: 'london',
             weather: null,
             loading: true,
-            details: false
+            details: false,
+            settings: {
+                temp: 'celsius',
+                speed: 'mph',
+                precipitation: 'mm'
+            }
         })
-
     return (
         <WeatherContext.Provider value={{ state, dispatch }}>
             {children}

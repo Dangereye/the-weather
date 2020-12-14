@@ -1,8 +1,12 @@
 button {
   border: none;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: $text-color-light;
   outline: none;
   cursor: pointer;
-  i {
-    font-size: $font-size-medium;
-  }
+  transition: color 0.4s ease;
+}
+button:hover {
+  color: $text-color-bright;
 }

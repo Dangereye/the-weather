@@ -1,13 +1,18 @@
 form {
-  input {
-    padding: 1.2rem;
-    font-size: $font-size-medium;
-    color: $text-color-dark;
-    border: none;
-    outline: none;
-  }
+}
 
-  ::placeholder {
-    color: lighten($text-color-dark, 25%);
-  }
+input {
+  padding: 1.2rem;
+  font-size: $font-size-medium;
+  color: $text-color-dark;
+  border: none;
+  outline: none;
+}
+
+input[type='radio'] {
+  margin-right: 1rem;
+}
+
+::placeholder {
+  color: lighten($text-color-dark, 25%);
 }

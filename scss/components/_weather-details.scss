@@ -4,7 +4,7 @@
   right: 0;
   width: 100%;
   max-width: 45rem;
-  min-height: 100vh;
+  height: 100vh;
   background: linear-gradient(145deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6));
   backdrop-filter: blur(8px);
   background-blend-mode: overlay;
@@ -27,12 +27,10 @@
     display: flex;
     justify-content: space-between;
 
-    > *:not(:last-child) {
-      border-right: 2px dotted lighten($text-color-dark, 50%);
-    }
     button {
-      flex: 1;
-      padding: 1.2rem 0;
+      font-size: $font-size-large;
+      background-color: transparent;
+      transition: color 0.4s ease;
     }
   }
 
@@ -45,9 +43,11 @@
   .location {
     form {
       display: flex;
+
       input {
         flex-grow: 1;
       }
+
       button {
         padding: 0 1.6rem;
         background-color: $primary-color;
@@ -55,6 +55,7 @@
       }
     }
   }
+
   .swiper-container {
     overflow: hidden;
     // border: 1px solid red;
@@ -68,6 +69,7 @@
   }
 
   .swiper-slide {
+    min-width: max-content;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -80,10 +82,11 @@
     }
   }
 
-  .close {
+  button.close {
     width: 100%;
+    margin-top: 4rem;
+    background-color: transparent;
     text-align: center;
-    cursor: pointer;
   }
 }
 
@@ -105,4 +108,15 @@
   *:last-child {
     color: $text-color-bright;
   }
+}
+h5 {
+  margin: 1rem 0;
+  color: $text-color-bright;
+  font-weight: 500;
+}
+.options-group {
+  padding: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
