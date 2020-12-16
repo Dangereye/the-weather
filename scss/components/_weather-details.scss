@@ -23,23 +23,6 @@
     }
   }
 
-  .tabs {
-    display: flex;
-    justify-content: space-between;
-
-    button {
-      font-size: $font-size-large;
-      background-color: transparent;
-      transition: color 0.4s ease;
-    }
-  }
-
-  .info {
-    > *:not(:last-child) {
-      padding-bottom: clamp(4rem, 2.5vw, 8rem);
-    }
-  }
-
   .location {
     form {
       display: flex;
@@ -54,6 +37,60 @@
         color: $text-color-bright;
       }
     }
+  }
+
+  .tabs {
+    display: flex;
+    justify-content: space-between;
+
+    button {
+      font-size: $font-size-large;
+      background-color: transparent;
+      transition: color 0.4s ease;
+    }
+  }
+
+  .day-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .previous,
+    .next {
+      font-size: 2.4rem;
+      color: $primary-color;
+      cursor: pointer;
+    }
+  }
+
+  .info {
+    h3.details-title {
+      color: $text-color-bright;
+      text-transform: capitalize;
+      margin-bottom: 2rem;
+    }
+
+    .condition-group,
+    .settings-group {
+      padding: 1rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .key {
+        text-transform: capitalize;
+      }
+
+      .value {
+        color: $text-color-bright;
+      }
+    }
+  }
+
+  h5 {
+    margin: 2rem 0 1rem 0;
+    color: $text-color-bright;
+    font-weight: 500;
   }
 
   .swiper-container {
@@ -92,31 +129,4 @@
 
 .weather-details.active {
   transform: translateX(0);
-}
-
-.details-title {
-  margin-bottom: 2rem;
-  color: $text-color-bright;
-}
-
-.condition-group {
-  padding: 1rem 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  *:last-child {
-    color: $text-color-bright;
-  }
-}
-h5 {
-  margin: 1rem 0;
-  color: $text-color-bright;
-  font-weight: 500;
-}
-.options-group {
-  padding: 1rem 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }

@@ -16,7 +16,7 @@ const Settings = () => {
         <div className='settings'>
             <h3 className='details-title'>Settings</h3>
             <h5>Temp</h5>
-            <div className='options-group'>
+            <div className='settings-group'>
                 <span>
                     <input
                         type='radio'
@@ -39,7 +39,7 @@ const Settings = () => {
                 </span>
             </div>
             <h5>Speed</h5>
-            <div className='options-group'>
+            <div className='settings-group'>
                 <span>
                     <input
                         type='radio'
@@ -60,7 +60,7 @@ const Settings = () => {
                 </span>
             </div>
             <h5>Precipitation</h5>
-            <div className='options-group'>
+            <div className='settings-group'>
 
                 <span>
                     <input

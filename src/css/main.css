@@ -168,21 +168,6 @@ main .container {
   padding-bottom: clamp(4rem, 2.5vw, 8rem);
 }
 
-.weather-details .tabs {
-  display: flex;
-  justify-content: space-between;
-}
-
-.weather-details .tabs button {
-  font-size: clamp(1.8rem, 2.5vw, 2.4rem);
-  background-color: transparent;
-  transition: color 0.4s ease;
-}
-
-.weather-details .info > *:not(:last-child) {
-  padding-bottom: clamp(4rem, 2.5vw, 8rem);
-}
-
 .weather-details .location form {
   display: flex;
 }
@@ -195,6 +180,60 @@ main .container {
   padding: 0 1.6rem;
   background-color: #d37217;
   color: #fafafa;
+}
+
+.weather-details .tabs {
+  display: flex;
+  justify-content: space-between;
+}
+
+.weather-details .tabs button {
+  font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+  background-color: transparent;
+  transition: color 0.4s ease;
+}
+
+.weather-details .day-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.weather-details .day-group .previous,
+.weather-details .day-group .next {
+  font-size: 2.4rem;
+  color: #d37217;
+  cursor: pointer;
+}
+
+.weather-details .info h3.details-title {
+  color: #fafafa;
+  text-transform: capitalize;
+  margin-bottom: 2rem;
+}
+
+.weather-details .info .condition-group,
+.weather-details .info .settings-group {
+  padding: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.weather-details .info .condition-group .key,
+.weather-details .info .settings-group .key {
+  text-transform: capitalize;
+}
+
+.weather-details .info .condition-group .value,
+.weather-details .info .settings-group .value {
+  color: #fafafa;
+}
+
+.weather-details h5 {
+  margin: 2rem 0 1rem 0;
+  color: #fafafa;
+  font-weight: 500;
 }
 
 .weather-details .swiper-container {
@@ -229,35 +268,6 @@ main .container {
 
 .weather-details.active {
   transform: translateX(0);
-}
-
-.details-title {
-  margin-bottom: 2rem;
-  color: #fafafa;
-}
-
-.condition-group {
-  padding: 1rem 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.condition-group *:last-child {
-  color: #fafafa;
-}
-
-h5 {
-  margin: 1rem 0;
-  color: #fafafa;
-  font-weight: 500;
-}
-
-.options-group {
-  padding: 1rem 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 footer .container {
