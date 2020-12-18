@@ -1,12 +1,13 @@
-@import 'partials/variables';
-@import 'partials/typography';
-@import 'partials/global';
-@import 'partials/forms';
-@import 'partials/buttons';
+@import "partials/variables";
+@import "partials/typography";
+@import "partials/global";
+@import "partials/forms";
+@import "partials/buttons";
 
-@import 'components/app';
-@import 'components/header';
-@import 'components/main';
-@import 'components/weather-overview';
-@import 'components/weather-details';
-@import 'components/footer';
+@import "components/app";
+@import "components/header";
+@import "components/main";
+@import "components/weather-overview";
+@import "components/weather-details";
+@import "components/loader";
+@import "components/footer";

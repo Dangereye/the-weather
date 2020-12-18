@@ -6,7 +6,6 @@
 
   display: grid;
   grid-template-rows: auto 1fr auto;
-  background-image: url(img/cloudy.jpg);
-  background-size: cover;
-  background-position: center;
+  background-color: rgb(42, 8, 135);
+  background-blend-mode: overlay;
 }
