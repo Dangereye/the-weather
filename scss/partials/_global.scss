@@ -18,21 +18,31 @@ a {
 
 // Global
 body {
-  font-size: $font-size-medium;
-  color: $text-color-light;
+  font-size: $textBase;
+  color: $textDark2;
   width: 100%;
 }
 
+nav,
 header,
 main,
+.message,
 footer {
-  width: 100%;
-  display: flex;
-  justify-content: center;
+  padding: 1rem $desktop;
+
+  @media (max-width: 768px) {
+    padding: 1rem $tablet;
+  }
+  @media (max-width: 420px) {
+    padding: 1rem $mobile;
+  }
+}
+
+.message {
+  height: max-content;
 }
 
 .container {
   width: 100%;
   max-width: 1800px;
-  padding: 2rem 1.6rem;
 }

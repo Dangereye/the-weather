@@ -1,11 +1,6 @@
 .app {
   width: 100%;
-  max-width: 100%;
   min-height: 100vh;
+  background-color: $bgLight2;
   overflow-x: hidden;
-
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  background-color: rgb(42, 8, 135);
-  background-blend-mode: overlay;
 }

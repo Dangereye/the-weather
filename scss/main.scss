@@ -3,11 +3,17 @@
 @import "partials/global";
 @import "partials/forms";
 @import "partials/buttons";
+@import "partials/mixins";
 
 @import "components/app";
+@import "components/nav";
 @import "components/header";
 @import "components/main";
-@import "components/weather-overview";
+@import "components/toggle-button";
+@import "components/overview";
+@import "components/hourly-weather";
 @import "components/weather-details";
+
 @import "components/loader";
+@import "components/message";
 @import "components/footer";

@@ -1,20 +1,20 @@
 import React, { useState, useContext } from "react";
 import { WeatherContext } from "../../contexts/WeatherContext";
-import { format } from "date-fns";
 import Details from "./Details";
 import HourlyWeather from "./HourlyWeather";
 import Settings from "./Settings";
 
 const WeatherDetails = () => {
+  const { state, dispatch } = useContext(WeatherContext);
   const [location, setLocation] = useState("");
   const [tab, setTab] = useState("now");
   const [day, setDay] = useState(0);
-  const { state, dispatch } = useContext(WeatherContext);
 
-  const updateState = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    localStorage.setItem("location", JSON.stringify(location));
-    dispatch({ type: "SET_LOCATION", payload: location });
+    localStorage.setItem("lsLocation", JSON.stringify(location));
+    dispatch({ type: "LOADING", payload: true });
+    dispatch({ type: "LOCATION", payload: location });
     setLocation("");
   };
 
@@ -29,7 +29,7 @@ const WeatherDetails = () => {
     }
   };
 
-  if (!state.loading) {
+  if (state.weather) {
     const name = state.weather.location.name;
     const region = state.weather.location.region;
     const country = state.weather.location.country;
@@ -109,7 +109,7 @@ const WeatherDetails = () => {
       >
         <div className="content">
           <div className="location">
-            <form onSubmit={updateState}>
+            <form onSubmit={handleSubmit}>
               <input
                 className="location"
                 type="text"
@@ -158,12 +158,7 @@ const WeatherDetails = () => {
             <span onClick={previousDay}>
               <i className="previous fas fa-caret-left"></i>
             </span>
-            <span>
-              {format(
-                new Date(state.weather.forecast.forecastday[day].date),
-                "eee do MMM"
-              )}
-            </span>
+            <span>date</span>
             <span onClick={nextDay}>
               <i className="next fas fa-caret-right"></i>
             </span>
@@ -188,7 +183,9 @@ const WeatherDetails = () => {
 
         <button
           className="close"
-          onClick={() => dispatch({ type: "HIDE_DETAILS" })}
+          onClick={() =>
+            dispatch({ type: "TOGGLE_DETAILS", payload: !state.details })
+          }
         >
           Close
         </button>

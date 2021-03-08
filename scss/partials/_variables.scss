@@ -1,14 +1,33 @@
 // Font size
-$font-size-large: clamp(1.8rem, 2.5vw, 2.4rem);
-$font-size-medium: clamp(1.6rem, 2.5vw, 2rem);
-$font-size-small: clamp(1.4rem, 2.5vw, 1.6rem);
+$textLogo: 2rem;
+$textBase: 1.6rem;
+$textFooter: 1.2rem;
 
-// Font colours
-$text-color-dark: rgb(42, 42, 42);
-$text-color-bright: rgb(250, 250, 250);
-$text-color-light: darken($text-color-bright, 20%);
+//Padding
+$desktop: 4.8rem;
+$tablet: 2.4rem;
+$mobile: 1.6rem;
 
-$text-color-link: darken($text-color-bright, 20%);
+// Text colours
+$textDark: rgb(0, 0, 0);
+$textDark2: lighten($textDark, 10%);
+$textDark3: lighten($textDark, 20%);
+
+$textLight: rgb(255, 255, 255);
+$textLight2: darken($textLight, 10%);
+$textLight3: darken($textLight, 20%);
+
+$placeholder: #ccc;
+
+$error: crimson;
+
+// Background colours
+$bgLight: #fff;
+$bgLight2: darken($bgLight, 10%);
+$bgLight3: darken($bgLight, 20%);
+
+$bgDark: #000;
 
 // Colours
-$primary-color: rgb(211, 114, 23);
+$appColor: rgba(0, 146, 190, 0.9);
+$accent: #d37217;

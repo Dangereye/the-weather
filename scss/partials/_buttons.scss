@@ -1,12 +1,10 @@
 button {
+  font-family: "Montserrat", sans-serif;
   border: none;
   font-size: 1.6rem;
   font-weight: 500;
-  color: $text-color-light;
+  color: $textLight2;
   outline: none;
   cursor: pointer;
   transition: color 0.4s ease;
-}
-button:hover {
-  color: $text-color-bright;
 }

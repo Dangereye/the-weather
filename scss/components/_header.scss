@@ -1,14 +1,20 @@
 header {
-  .container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 2rem;
-    justify-content: space-between;
-  }
+  height: 100vh;
 
-  .logo {
-    font-size: $font-size-large;
-    font-weight: 600;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  .scroll-down {
+    color: #fff;
+    svg {
+      width: 2.4rem;
+      height: 2.4rem;
+    }
   }
 }

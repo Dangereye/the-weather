@@ -1,0 +1,16 @@
+@mixin glass {
+  padding: 4rem;
+  color: $textDark;
+  backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-right-color: rgba(#000, 0.1);
+  border-bottom-color: rgba(#000, 0.1);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.4)
+  );
+  box-shadow: inset -1px 1px 1px rgba(orangered, 0.5);
+  box-shadow: inset 0 0 20px rgba(purple, 1);
+  box-shadow: 0 5px 10px rgba(#000, 0.1);
+}

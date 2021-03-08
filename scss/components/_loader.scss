@@ -1,6 +1,7 @@
 .loader {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
 
   .spinner {
@@ -8,13 +9,13 @@
     height: 5rem;
     border-radius: 50%;
     border: 4px solid transparent;
-    border-color: transparent $text-color-light;
+    border-color: transparent $textDark;
     animation: spin 1s forwards infinite linear;
   }
 
   .loader-text {
     margin-top: 2rem;
-    color: $text-color-light;
+    color: $textDark2;
   }
 }
 

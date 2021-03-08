@@ -1,0 +1,20 @@
+.overview {
+  // @include glass;
+  margin-top: 8rem;
+  padding: 2rem;
+  width: max-content;
+  height: max-content;
+  text-align: center;
+  color: $textLight;
+
+  .location {
+    text-transform: capitalize;
+  }
+
+  .time-date,
+  .min-max-temp {
+    font-size: 1.6rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+  }
+}

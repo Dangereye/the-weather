@@ -1,55 +1,60 @@
 import React, { useContext, useEffect } from "react";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import Main from "./components/Main";
 import { WeatherContext } from "./contexts/WeatherContext";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Home from "./pages/Home";
+import Settings from "./pages/Settings";
+import Loader from "./components/Loader";
+import Message from "./components/Message";
+import Header from "./components/Header";
 
 const App = () => {
   const { state, dispatch } = useContext(WeatherContext);
 
   useEffect(() => {
-    const updateBg = (text) => {
-      switch (true) {
-        case text.includes("cloudy") ||
-          text.includes("overcast") ||
-          text.includes("mist") ||
-          text.includes("fog"):
-          dispatch({ type: "SET_BACKGROUND", payload: "url(img/cloudy.jpg)" });
-          break;
-        case text.includes("rain") || text.includes("drizzle"):
-          dispatch({ type: "SET_BACKGROUND", payload: "url(img/rain.jpg)" });
-          break;
-        case text.includes("snow") ||
-          text.includes("sleet") ||
-          text.includes("blizzard"):
-          dispatch({ type: "SET_BACKGROUND", payload: "url(img/snow.jpg)" });
-          break;
-        case text.includes("sun") || text.includes("clear"):
-          dispatch({
-            type: "SET_BACKGROUND",
-            payload: "url(img/clear-sky.jpg)",
-          });
-          break;
-        default:
-          return "none";
-      }
-    };
-    if (!state.loading) {
-      const text = state.weather.current.condition.text;
-      console.log(text);
-      updateBg(text.toLowerCase());
-    }
-  }, [state.background, state.loading, state.weather, dispatch]);
-  const background = {
-    backgroundImage: state.background,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-  };
+    fetch(
+      `http://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_KEY}&q=${state.location}&days=3`
+    )
+      .then((res) => {
+        if (res.status === 400) {
+          localStorage.clear();
+          console.log(res);
+          throw Error(`Oops! We could not find ${state.location}.`);
+        } else if (!res.ok) {
+          console.log(res);
+          throw Error(
+            `Oops! Something went wrong? Please reload the page, or try again later.`
+          );
+        }
+        return res.json();
+      })
+      .then((data) => {
+        dispatch({ type: "FORECAST", payload: data });
+        dispatch({ type: "LOADING", payload: false });
+        dispatch({ type: "ERROR", payload: null });
+      })
+
+      .catch((error) => {
+        dispatch({ type: "ERROR", payload: error.message });
+        dispatch({ type: "LOADING", payload: false });
+      });
+  }, [state.location, dispatch, state.isLoading]);
+
   return (
-    <div className="app" style={background}>
-      <Header />
-      <Main />
-      <Footer />
+    <div className="app">
+      <Router>
+        <Navbar />
+        {state.isLoading && <Loader text="Fetching weather, please wait.." />}
+        {state.error && <Message text={state.error} role="error" />}
+        {state.weather && (
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/settings" exact component={Settings} />
+          </Switch>
+        )}
+        <Footer />
+      </Router>
     </div>
   );
 };

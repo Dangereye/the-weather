@@ -4,16 +4,16 @@ export const WeatherContext = createContext();
 
 const weatherReducer = (state, action) => {
   switch (action.type) {
-    case "GET_CURRENT":
-      return { ...state, weather: action.payload, loading: false };
-    case "SET_LOCATION":
+    case "LOADING":
+      return { ...state, isLoading: action.payload };
+    case "ERROR":
+      return { ...state, error: action.payload };
+    case "TOGGLE_DETAILS":
+      return { ...state, details: action.payload };
+    case "LOCATION":
       return { ...state, location: action.payload };
-    case "SET_BACKGROUND":
-      return { ...state, background: action.payload };
-    case "SHOW_DETAILS":
-      return { ...state, details: true };
-    case "HIDE_DETAILS":
-      return { ...state, details: false };
+    case "FORECAST":
+      return { ...state, weather: action.payload };
     case "SETTINGS":
       return { ...state, settings: action.payload };
     default:
@@ -22,17 +22,22 @@ const weatherReducer = (state, action) => {
 };
 
 const WeatherContextProvider = ({ children }) => {
+  let currentLocation = "London";
+  if (localStorage.getItem("lsLocation")) {
+    currentLocation = JSON.parse(localStorage.getItem("lsLocation"));
+  }
   const [state, dispatch] = useReducer(weatherReducer, {
-    location: "London",
-    weather: null,
-    loading: true,
+    isLoading: true,
+    error: null,
     details: false,
+    location: currentLocation,
+    day: 0,
+    weather: null,
     settings: {
       temp: "celsius",
       speed: "mph",
       precipitation: "mm",
     },
-    background: "none",
   });
   return (
     <WeatherContext.Provider value={{ state, dispatch }}>
