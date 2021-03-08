@@ -7,7 +7,6 @@ import Home from "./pages/Home";
 import Settings from "./pages/Settings";
 import Loader from "./components/Loader";
 import Message from "./components/Message";
-import Header from "./components/Header";
 
 const App = () => {
   const { state, dispatch } = useContext(WeatherContext);

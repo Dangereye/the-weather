@@ -2,11 +2,20 @@ form {
 }
 
 input {
-  padding: 1.2rem;
-  font-size: $textBase;
-  color: $textDark;
+  width: 100%;
+  padding: 0;
+  text-align: center;
+  font-size: 4.2rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: $textLight;
+  background-color: transparent;
   border: none;
   outline: none;
+
+  &:focus {
+    border: 1px solid #fff;
+  }
 }
 
 input[type="radio"] {

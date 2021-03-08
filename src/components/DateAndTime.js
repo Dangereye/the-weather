@@ -8,8 +8,8 @@ const DateAndTime = () => {
     day: "numeric",
   };
   const timeOptions = { hour12: false, hour: "2-digit", minute: "2-digit" };
-  const [currentDate, setCurrentDate] = useState(null);
-  const [currentTime, setCurrentTime] = useState(null);
+  const [currentDate, setCurrentDate] = useState("");
+  const [currentTime, setCurrentTime] = useState("");
 
   useEffect(() => {
     const updateTime = setInterval(() => {

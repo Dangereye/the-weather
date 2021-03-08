@@ -2,7 +2,8 @@
   // @include glass;
   margin-top: 8rem;
   padding: 2rem;
-  width: max-content;
+  width: 100%;
+  max-width: 60rem;
   height: max-content;
   text-align: center;
   color: $textLight;
@@ -12,6 +13,7 @@
   }
 
   .time-date,
+  .region,
   .min-max-temp {
     font-size: 1.6rem;
     font-weight: 500;
