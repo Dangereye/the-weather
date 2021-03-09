@@ -6,9 +6,7 @@ const Home = () => {
   return (
     <>
       <Header />
-      <main>
-        <h4>Additional content</h4>
-      </main>
+      <HourlyWeather />
     </>
   );
 };

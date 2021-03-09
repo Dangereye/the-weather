@@ -1,5 +1,4 @@
 @mixin glass {
-  padding: 4rem;
   color: $textDark;
   backdrop-filter: blur(30px);
   border: 1px solid rgba(255, 255, 255, 0.05);

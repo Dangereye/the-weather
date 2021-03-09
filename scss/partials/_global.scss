@@ -24,8 +24,6 @@ body {
 }
 
 nav,
-header,
-main,
 .message,
 footer {
   padding: 1rem $desktop;
@@ -38,11 +36,24 @@ footer {
   }
 }
 
-.message {
-  height: max-content;
+header,
+section {
+  padding: 4rem $desktop;
+
+  @media (max-width: 768px) {
+    padding: 4rem $tablet;
+  }
+  @media (max-width: 420px) {
+    padding: 2rem $mobile;
+  }
 }
 
 .container {
   width: 100%;
   max-width: 1800px;
+}
+
+.time-date,
+.date {
+  padding: 1rem 0;
 }

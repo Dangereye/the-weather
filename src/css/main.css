@@ -48,8 +48,6 @@ body {
 }
 
 nav,
-header,
-main,
 .message,
 footer {
   padding: 1rem 4.8rem;
@@ -57,8 +55,6 @@ footer {
 
 @media (max-width: 768px) {
   nav,
-  header,
-  main,
   .message,
   footer {
     padding: 1rem 2.4rem;
@@ -67,23 +63,39 @@ footer {
 
 @media (max-width: 420px) {
   nav,
-  header,
-  main,
   .message,
   footer {
     padding: 1rem 1.6rem;
   }
 }
 
-.message {
-  height: -webkit-max-content;
-  height: -moz-max-content;
-  height: max-content;
+header,
+section {
+  padding: 4rem 4.8rem;
+}
+
+@media (max-width: 768px) {
+  header,
+  section {
+    padding: 4rem 2.4rem;
+  }
+}
+
+@media (max-width: 420px) {
+  header,
+  section {
+    padding: 2rem 1.6rem;
+  }
 }
 
 .container {
   width: 100%;
   max-width: 1800px;
+}
+
+.time-date,
+.date {
+  padding: 1rem 0;
 }
 
 input {
@@ -123,16 +135,23 @@ input[type="radio"] {
   color: #ccc;
 }
 
-button {
+button,
+.btn {
   font-family: "Montserrat", sans-serif;
-  border: none;
   font-size: 1.6rem;
   font-weight: 500;
-  color: #e6e6e6;
+  border: none;
   outline: none;
   cursor: pointer;
   -webkit-transition: color 0.4s ease;
   transition: color 0.4s ease;
+}
+
+button.reload,
+.btn.reload {
+  margin-left: 1rem;
+  color: #1a1a1a;
+  background-color: transparent;
 }
 
 .app {
@@ -222,13 +241,7 @@ header .scroll-down svg {
   height: 2.4rem;
 }
 
-main {
-  background-color: #e6e6e6;
-  overflow-x: hidden;
-}
-
 .details-button {
-  padding: 4rem;
   color: black;
   -webkit-backdrop-filter: blur(30px);
           backdrop-filter: blur(30px);
@@ -278,22 +291,51 @@ main {
   letter-spacing: 1px;
 }
 
-.hourly-weather {
-  justify-self: flex-end;
-  position: relative;
-  max-width: 100%;
-  height: 152px;
-  border: 1px solid black;
-  overflow-x: auto;
+.hourly-weather > *:not(:last-child) {
+  margin-bottom: 1rem;
 }
 
-.hourly-weather::-webkit-scrollbar {
+.hourly-weather .days {
+  padding: 1rem 0;
+}
+
+.hourly-weather .days > *:not(:last-child) {
+  margin-right: 2rem;
+}
+
+.hourly-weather .day {
+  padding: 1rem 0;
+  font-size: 1.6rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.hourly-weather .day.active {
+  border-bottom: 3px solid #d37217;
+}
+
+.hourly-weather .date {
+  display: block;
+  padding: 1rem 0;
+}
+
+.hourly-weather-slider {
+  justify-self: flex-end;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background-color: transparent;
+}
+
+.hourly-weather-slider::-webkit-scrollbar {
   display: none;
 }
 
-.hourly-weather .hours {
-  display: block;
-  position: absolute;
+.hourly-weather-slider .hours {
+  position: relative;
   top: 0;
   left: 0;
   width: -webkit-max-content;
@@ -306,8 +348,7 @@ main {
   cursor: grab;
 }
 
-.hourly-weather .hour-card {
-  border: 1px solid black;
+.hourly-weather-slider .hour-card {
   padding: 1rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -319,26 +360,18 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
 }
 
-.hourly-weather .hour-card > *:not(:last-child) {
-  margin-bottom: 1rem;
+.hourly-weather-slider .hour-card > *:not(:last-child) {
+  margin-bottom: 0.5rem;
 }
 
-.hourly-weather .hour-card img {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -o-user-select: none;
-  -ms-user-select: none;
-      user-select: none;
+.hourly-weather-slider .hour-card img {
+  width: 6.4rem;
+  height: 6.4rem;
 }
 
 .weather-details {
-  padding: 4rem;
   color: black;
   -webkit-backdrop-filter: blur(30px);
           backdrop-filter: blur(30px);
@@ -528,6 +561,7 @@ main {
 }
 
 .loader {
+  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -581,36 +615,37 @@ main {
 }
 
 .message {
-  background-color: #fff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: #1a1a1a;
+  background-color: white;
+  z-index: 9;
 }
 
 .message .container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 }
 
-.message svg {
+.message .container span {
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+.message .container svg {
   -ms-flex-negative: 0;
       flex-shrink: 0;
   width: 24px;
   height: 24px;
-  margin-right: 1rem;
-}
-
-.message span {
-  font-size: 1.4rem;
-  font-weight: 600;
-}
-
-.message.error {
-  color: crimson;
-  border-top: 1px solid crimson;
-  border-bottom: 1px solid crimson;
-  background-color: #fcdae1;
 }
 
 footer {

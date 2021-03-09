@@ -10,7 +10,6 @@ import Message from "./components/Message";
 
 const App = () => {
   const { state, dispatch } = useContext(WeatherContext);
-
   useEffect(() => {
     fetch(
       `http://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_KEY}&q=${state.location}&days=3`
@@ -19,7 +18,7 @@ const App = () => {
         if (res.status === 400) {
           localStorage.clear();
           console.log(res);
-          throw Error(`Oops! We could not find ${state.location}.`);
+          throw Error(`Oops! Unknown Location.`);
         } else if (!res.ok) {
           console.log(res);
           throw Error(
@@ -38,7 +37,7 @@ const App = () => {
         dispatch({ type: "ERROR", payload: error.message });
         dispatch({ type: "LOADING", payload: false });
       });
-  }, [state.location, dispatch, state.isLoading]);
+  }, [state.location, state.day, dispatch, state.isLoading]);
 
   return (
     <div className="app">

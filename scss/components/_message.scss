@@ -1,25 +1,25 @@
 .message {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: $textDark2;
   background-color: $bgLight;
+  z-index: 9;
 
   .container {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-  }
-  svg {
-    flex-shrink: 0;
-    width: 24px;
-    height: 24px;
-    margin-right: 1rem;
-  }
-  span {
-    font-size: 1.4rem;
-    font-weight: 600;
-  }
 
-  &.error {
-    color: $error;
-    border-top: 1px solid $error;
-    border-bottom: 1px solid $error;
-    background-color: lighten($error, 45%);
+    span {
+      font-size: 1.6rem;
+      font-weight: 400;
+    }
+    svg {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+    }
   }
 }

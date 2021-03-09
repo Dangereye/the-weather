@@ -12,6 +12,8 @@ const weatherReducer = (state, action) => {
       return { ...state, details: action.payload };
     case "LOCATION":
       return { ...state, location: action.payload };
+    case "DAY":
+      return { ...state, day: action.payload };
     case "FORECAST":
       return { ...state, weather: action.payload };
     case "SETTINGS":

@@ -1,10 +1,17 @@
-button {
+button,
+.btn {
   font-family: "Montserrat", sans-serif;
-  border: none;
   font-size: 1.6rem;
   font-weight: 500;
-  color: $textLight2;
+  border: none;
   outline: none;
   cursor: pointer;
+
   transition: color 0.4s ease;
+
+  &.reload {
+    margin-left: 1rem;
+    color: $textDark2;
+    background-color: transparent;
+  }
 }
