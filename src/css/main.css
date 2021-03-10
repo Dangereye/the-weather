@@ -181,6 +181,8 @@ nav {
           align-items: center;
   background-color: transparent;
   z-index: 10;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 nav .container {
@@ -306,7 +308,7 @@ header .container .scroll-down svg {
 }
 
 .current-conditions .groups {
-  padding: 2rem 0;
+  margin-top: 3rem;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (minmax(32rem, 1fr))[auto-fit];
@@ -319,6 +321,8 @@ header .container .scroll-down svg {
   padding: 3rem;
   color: white;
   background-color: #0085b9;
+  -webkit-box-shadow: 0 2px 7.5px rgba(0, 0, 0, 0.2), 0 7.5px 15px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 2px 7.5px rgba(0, 0, 0, 0.2), 0 7.5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .current-conditions .groups .group-list {
