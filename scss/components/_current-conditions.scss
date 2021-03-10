@@ -1,0 +1,40 @@
+.current-conditions {
+  background-color: $bgLight2;
+  .groups {
+    padding: 2rem 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
+    gap: 3rem;
+
+    .group {
+      width: 100%;
+      padding: 3rem;
+      color: $textLight;
+      background-color: $primary;
+
+      &-list {
+        margin-top: 1rem;
+
+        > *:not(:last-child) {
+          margin-bottom: 0.5rem;
+        }
+      }
+
+      &-list-item {
+        display: flex;
+        justify-content: space-between;
+
+        .key,
+        .value {
+          text-transform: capitalize;
+        }
+        .key {
+          font-weight: 400;
+        }
+        .value {
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}

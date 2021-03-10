@@ -38,22 +38,18 @@ footer {
 
 header,
 section {
-  padding: 4rem $desktop;
+  padding: 4.8rem $desktop;
 
   @media (max-width: 768px) {
-    padding: 4rem $tablet;
+    padding: 4.8rem $tablet;
   }
   @media (max-width: 420px) {
-    padding: 2rem $mobile;
+    padding: 2.4rem $mobile;
   }
 }
 
 .container {
+  margin: 0 auto;
   width: 100%;
-  max-width: 1800px;
-}
-
-.time-date,
-.date {
-  padding: 1rem 0;
+  max-width: $maxWidth;
 }

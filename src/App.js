@@ -1,12 +1,12 @@
 import React, { useContext, useEffect } from "react";
 import { WeatherContext } from "./contexts/WeatherContext";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import Navbar from "./components/layout/Navbar";
+import Footer from "./components/layout/Footer";
 import Home from "./pages/Home";
 import Settings from "./pages/Settings";
-import Loader from "./components/Loader";
-import Message from "./components/Message";
+import Loader from "./components/layout/Loader";
+import Message from "./components/layout/Message";
 
 const App = () => {
   const { state, dispatch } = useContext(WeatherContext);

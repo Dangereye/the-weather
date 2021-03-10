@@ -1,14 +1,13 @@
 import React, { useContext } from "react";
-import { WeatherContext } from "../../contexts/WeatherContext";
-import DateComponent from "../DateComponent";
-import DayComponent from "../DayComponent";
-import HourlyWeatherSlider from "./HourlyWeatherSlider";
+import { WeatherContext } from "../contexts/WeatherContext";
+import DayComponent from "./hourly_weather/DayComponent";
 
-const HourlyWeather = () => {
+const Days = () => {
   const { state, dispatch } = useContext(WeatherContext);
   return (
-    <section className="hourly-weather">
-      <div className="days">
+    <section className="days">
+      <div className="container">
+        <h3>Forecast</h3>
         <span
           className={state.day === 0 ? "day active " : "day"}
           onClick={() => dispatch({ type: "DAY", payload: 0 })}
@@ -23,12 +22,8 @@ const HourlyWeather = () => {
         </span>
         <DayComponent data={state.weather.forecast.forecastday[2].date} />
       </div>
-      <DateComponent
-        data={state.weather.forecast.forecastday[state.day].date}
-      />
-      <HourlyWeatherSlider />
     </section>
   );
 };
 
-export default HourlyWeather;
+export default Days;

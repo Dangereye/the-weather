@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 
-const DateAndTime = () => {
+const DateAndTime = ({ data }) => {
   const dateOptions = {
     weekday: "long",
-    year: "numeric",
     month: "long",
     day: "numeric",
   };
@@ -13,8 +12,8 @@ const DateAndTime = () => {
 
   useEffect(() => {
     const updateTime = setInterval(() => {
-      const date = new Date().toLocaleDateString("en-GB", dateOptions);
-      const time = new Date().toLocaleTimeString([], timeOptions);
+      const date = new Date(data).toLocaleDateString("en-GB", dateOptions);
+      const time = new Date(data).toLocaleTimeString([], timeOptions);
       setCurrentDate(date);
       setCurrentTime(time);
     }, 1000);
@@ -23,7 +22,9 @@ const DateAndTime = () => {
     return () => clearInterval(updateTime);
   });
 
-  return <div className="time-date">{`${currentTime} ${currentDate}`}</div>;
+  return (
+    <div className="times-and-dates">{`Last update: ${currentDate} at ${currentTime}`}</div>
+  );
 };
 
 export default DateAndTime;

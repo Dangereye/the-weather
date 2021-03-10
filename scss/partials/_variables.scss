@@ -1,3 +1,6 @@
+// Container max width
+$maxWidth: 180rem;
+
 // Font size
 $textLogo: 2rem;
 $textBase: 1.6rem;
@@ -29,5 +32,5 @@ $bgLight3: darken($bgLight, 20%);
 $bgDark: #000;
 
 // Colours
-$appColor: rgba(0, 146, 190, 0.9);
+$primary: rgb(0, 133, 185);
 $accent: #d37217;

@@ -1,0 +1,24 @@
+.days {
+  background-color: $bgDark;
+  color: $textLight;
+  .container {
+    > *:not(:last-child) {
+      margin-right: 1.6rem;
+    }
+  }
+
+  .day {
+    padding: 0.5rem 0;
+    font-size: 1.6rem;
+    font-weight: 600;
+    cursor: pointer;
+
+    &.active {
+      color: $primary;
+    }
+  }
+
+  .date {
+    display: block;
+  }
+}

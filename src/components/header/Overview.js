@@ -1,5 +1,5 @@
 import React, { useContext, useState, useRef, useEffect } from "react";
-import { WeatherContext } from "../contexts/WeatherContext";
+import { WeatherContext } from "../../contexts/WeatherContext";
 
 const Overview = () => {
   const { state, dispatch } = useContext(WeatherContext);

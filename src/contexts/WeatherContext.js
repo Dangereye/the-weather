@@ -38,7 +38,9 @@ const WeatherContextProvider = ({ children }) => {
     settings: {
       temp: "celsius",
       speed: "mph",
+      distance: "miles",
       precipitation: "mm",
+      pressure: "mb",
     },
   });
   return (
