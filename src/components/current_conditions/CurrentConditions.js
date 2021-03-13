@@ -52,7 +52,7 @@ const CurrentConditions = () => {
               : `${state.weather.current.pressure_in}in`,
         },
         {
-          UV: state.weather.current.uv,
+          UV_index: state.weather.current.uv,
         },
       ],
     },
@@ -61,9 +61,6 @@ const CurrentConditions = () => {
       list: [
         {
           direction: state.weather.current.wind_dir,
-        },
-        {
-          degree: `${state.weather.current.wind_degree}°`,
         },
         {
           speed:
@@ -83,7 +80,7 @@ const CurrentConditions = () => {
   return (
     <section className="current-conditions">
       <div className="container">
-        <h3>Current Weather</h3>
+        <h4>Current Weather</h4>
         <DateAndTime data={state.weather.current.last_updated} />
         <div className="groups">
           <ConditionGroup data={current.conditions} />

@@ -2,23 +2,28 @@
   background-color: $bgDark;
   color: $textLight;
   .container {
-    > *:not(:last-child) {
-      margin-right: 1.6rem;
+    .links {
+      margin-top: 1rem;
+      > *:not(:last-child) {
+        margin-right: 1.6rem;
+      }
+
+      .day {
+        font-size: 1.8rem;
+        font-weight: 500;
+        cursor: pointer;
+
+        &.active {
+          color: $primary;
+        }
+      }
     }
-  }
 
-  .day {
-    padding: 0.5rem 0;
-    font-size: 1.6rem;
-    font-weight: 600;
-    cursor: pointer;
-
-    &.active {
-      color: $primary;
+    .times-and-dates {
+      display: block;
+      // margin-top: 1rem;
+      color: $textLight3;
+      font-weight: 400;
     }
-  }
-
-  .date {
-    display: block;
   }
 }

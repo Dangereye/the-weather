@@ -1,7 +1,9 @@
 import React, { useState, useContext, useRef } from "react";
 import { WeatherContext } from "../../contexts/WeatherContext";
+import ConditionCard from "./ConditionCard";
+import PrecipitationCard from "./PrecipitationCard";
 
-const HourlyWeatherSlider = ({ day }) => {
+const HourlyWeatherSlider = ({ type }) => {
   const { state } = useContext(WeatherContext);
   const [cursor, setCursor] = useState("pointer");
   const [drag, setDrag] = useState(false);
@@ -49,7 +51,7 @@ const HourlyWeatherSlider = ({ day }) => {
       onMouseMove={onMouseMove}
     >
       <div
-        className="hours"
+        className="items"
         ref={target}
         style={{
           left: posX + "px",
@@ -57,28 +59,18 @@ const HourlyWeatherSlider = ({ day }) => {
           cursor: cursor,
         }}
       >
-        {state.weather.forecast.forecastday[state.day].hour.map((item) => {
-          return (
-            <div key={item.time} className="hour-card">
-              <div className="temp">
-                {state.settings.temp === "celsius"
-                  ? `${item.temp_c}°c`
-                  : `${item.temp_f}°f`}
-              </div>
-              <img
-                src={item.condition.icon}
-                alt={item.condition.text}
-                draggable={false}
-              />
-              <div className="time">
-                {new Date(item.time).toLocaleTimeString("en-GB", {
-                  hour: "2-digit",
-                  minute: "2-digit",
-                })}
-              </div>
-            </div>
-          );
-        })}
+        {type === "conditions" &&
+          state.weather.forecast.forecastday[state.day].hour.map(
+            (item, index) => {
+              return <ConditionCard key={`${type}-${index}`} item={item} />;
+            }
+          )}
+        {type === "precipitation" &&
+          state.weather.forecast.forecastday[state.day].hour.map(
+            (item, index) => {
+              return <PrecipitationCard key={`${type}-${index}`} item={item} />;
+            }
+          )}
       </div>
     </div>
   );

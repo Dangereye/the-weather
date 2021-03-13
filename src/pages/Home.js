@@ -2,7 +2,8 @@ import React from "react";
 import CurrentConditions from "../components/current_conditions/CurrentConditions";
 import Days from "../components/Days";
 import Header from "../components/header/Header";
-import HourlyWeather from "../components/hourly_weather/HourlyWeather";
+import HourlyConditions from "../components/hourly_weather/HourlyConditions";
+import HourlyPrecipitation from "../components/hourly_weather/HourlyPrecipitation";
 
 const Home = () => {
   return (
@@ -10,7 +11,8 @@ const Home = () => {
       <Header />
       <CurrentConditions />
       <Days />
-      <HourlyWeather />
+      <HourlyConditions />
+      <HourlyPrecipitation />
     </>
   );
 };
