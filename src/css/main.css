@@ -44,17 +44,21 @@ p {
   font-weight: 300;
 }
 
+p span {
+  font-weight: 400;
+}
+
 .region,
 .min-max-temp {
   font-size: 1.6rem;
   font-weight: 500;
 }
 
-span {
+.group span {
   text-transform: capitalize;
 }
 
-span.value {
+.group span.value {
   font-weight: 600;
 }
 
@@ -566,6 +570,14 @@ header .container .scroll-down svg {
   width: 3.4rem;
   height: 3.4rem;
   fill: #0073db;
+}
+
+p span {
+  margin: 0 0.5rem;
+}
+
+.daily-total {
+  margin-top: 3rem;
 }
 
 .loader {

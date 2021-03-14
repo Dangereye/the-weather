@@ -5,24 +5,25 @@ import ConditionGroup from "./ConditionGroup";
 
 const CurrentConditions = () => {
   const { state } = useContext(WeatherContext);
+  const now = state.weather.current;
   const current = {
     conditions: {
       title: "Conditions",
       list: [
-        { cloud_cover: `${state.weather.current.cloud}%` },
-        { condition: state.weather.current.condition.text },
+        { cloud_cover: `${now.cloud}%` },
+        { condition: now.condition.text },
         {
           precipitation:
             state.settings.precipitation === "mm"
-              ? `${state.weather.current.precip_mm}mm`
-              : `${state.weather.current.precip_in}in`,
+              ? `${now.precip_mm}mm`
+              : `${now.precip_in}in`,
         },
 
         {
           visibility:
             state.settings.distance === "miles"
-              ? `${state.weather.current.vis_miles} miles`
-              : `${state.weather.current.vis_km}km`,
+              ? `${now.vis_miles} miles`
+              : `${now.vis_km}km`,
         },
       ],
     },
@@ -33,26 +34,26 @@ const CurrentConditions = () => {
         {
           temp:
             state.settings.temp === "celsius"
-              ? `${state.weather.current.temp_c}°c`
-              : `${state.weather.current.temp_f}°f`,
+              ? `${now.temp_c}°c`
+              : `${now.temp_f}°f`,
         },
         {
           feels_like:
             state.settings.temp === "celsius"
-              ? `${state.weather.current.feelslike_c}°c`
-              : `${state.weather.current.feelslike_f}°f`,
+              ? `${now.feelslike_c}°c`
+              : `${now.feelslike_f}°f`,
         },
         {
-          humidity: state.weather.current.humidity,
+          humidity: now.humidity,
         },
         {
           pressure:
             state.settings.pressure === "mb"
-              ? `${state.weather.current.pressure_mb}mb`
-              : `${state.weather.current.pressure_in}in`,
+              ? `${now.pressure_mb}mb`
+              : `${now.pressure_in}in`,
         },
         {
-          UV_index: state.weather.current.uv,
+          UV_index: now.uv,
         },
       ],
     },
@@ -60,19 +61,19 @@ const CurrentConditions = () => {
       title: "Wind",
       list: [
         {
-          direction: state.weather.current.wind_dir,
+          direction: now.wind_dir,
         },
         {
           speed:
             state.settings.speed === "mph"
-              ? `${state.weather.current.wind_mph}mph`
-              : `${state.weather.current.wind_kph}kph`,
+              ? `${now.wind_mph}mph`
+              : `${now.wind_kph}kph`,
         },
         {
           gusts:
             state.settings.speed === "mph"
-              ? `${state.weather.current.gust_mph}mph`
-              : `${state.weather.current.gust_kph}kph`,
+              ? `${now.gust_mph}mph`
+              : `${now.gust_kph}kph`,
         },
       ],
     },
@@ -81,7 +82,7 @@ const CurrentConditions = () => {
     <section className="current-conditions">
       <div className="container">
         <h4>Current Weather</h4>
-        <DateAndTime data={state.weather.current.last_updated} />
+        <DateAndTime data={now.last_updated} />
         <div className="groups">
           <ConditionGroup data={current.conditions} />
           <ConditionGroup data={current.temperature} />

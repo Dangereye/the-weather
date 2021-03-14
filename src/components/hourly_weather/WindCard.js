@@ -6,6 +6,11 @@ const WindCard = ({ item }) => {
   const { state } = useContext(WeatherContext);
   return (
     <div key={item.time} className="item-card">
+      <div className="temp">
+        {state.settings.temp === "celsius"
+          ? `${item.feelslike_c}°c`
+          : `${item.feelslike_f}°f`}
+      </div>
       <div className="icon wind">
         <WindIcon angle={item.wind_degree} />
       </div>
