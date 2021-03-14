@@ -8,7 +8,6 @@ const Days = () => {
   return (
     <section className="days">
       <div className="container">
-        <h3>Hourly Forecast</h3>
         <div className="links">
           <span
             className={state.day === 0 ? "day active " : "day"}

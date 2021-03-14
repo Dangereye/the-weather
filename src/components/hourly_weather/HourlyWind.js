@@ -2,17 +2,17 @@ import React, { useContext } from "react";
 import { WeatherContext } from "../../contexts/WeatherContext";
 import HourlyWeatherSlider from "./HourlyWeatherSlider";
 
-const HourlyPrecipitation = () => {
+const HourlyWind = () => {
   const { state } = useContext(WeatherContext);
   return (
-    <section style={{ backgroundColor: "#fff" }}>
+    <section>
       <div className="container">
-        <h4>Precipitation</h4>
-        <p>Volume: {state.settings.precipitation}</p>
-        <HourlyWeatherSlider type="precipitation" />
+        <h4>Wind</h4>
+        <p>Unit: {state.settings.speed}</p>
+        <HourlyWeatherSlider type="wind" />
       </div>
     </section>
   );
 };
 
-export default HourlyPrecipitation;
+export default HourlyWind;

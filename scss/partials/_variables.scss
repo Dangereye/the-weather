@@ -3,7 +3,6 @@ $maxWidth: 180rem;
 
 // Font size
 $textLogo: 2rem;
-$textBase: 1.6rem;
 $textFooter: 1.2rem;
 
 //Padding
@@ -17,8 +16,8 @@ $textDark2: lighten($textDark, 10%);
 $textDark3: lighten($textDark, 20%);
 
 $textLight: rgb(255, 255, 255);
-$textLight2: darken($textLight, 10%);
-$textLight3: darken($textLight, 20%);
+$textLight2: darken($textLight, 5%);
+$textLight3: darken($textLight, 10%);
 
 $placeholder: #ccc;
 
@@ -26,13 +25,13 @@ $error: crimson;
 
 // Background colours
 $bgLight: rgb(255, 255, 255);
-$bgLight2: darken($bgLight, 10%);
-$bgLight3: darken($bgLight, 20%);
+$bgLight2: darken($bgLight, 5%);
+$bgLight3: darken($bgLight, 10%);
 
 $bgDark: #000;
 
 $boxShadow: 0 2px 7.5px rgba(0, 0, 0, 0.2), 0 7.5px 15px rgba(0, 0, 0, 0.2);
 
 // Colours
-$primary: rgb(1, 126, 175);
+$primary: rgb(0, 115, 219);
 $accent: #d37217;

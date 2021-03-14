@@ -1,5 +1,4 @@
 .current-conditions {
-  background-color: $bgLight2;
   .groups {
     margin-top: 3rem;
     display: grid;
@@ -24,18 +23,15 @@
       &-list-item {
         display: flex;
         justify-content: space-between;
-
-        .key,
-        .value {
-          text-transform: capitalize;
-        }
-        .key {
-          font-weight: 400;
-        }
-        .value {
-          font-weight: 600;
-        }
       }
+    }
+
+    @media (max-width: 420px) {
+      gap: 1.6rem;
+    }
+
+    @media (max-height: 420px) {
+      gap: 1.6rem;
     }
   }
 }

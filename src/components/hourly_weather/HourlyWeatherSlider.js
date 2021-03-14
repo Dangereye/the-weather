@@ -2,6 +2,7 @@ import React, { useState, useContext, useRef } from "react";
 import { WeatherContext } from "../../contexts/WeatherContext";
 import ConditionCard from "./ConditionCard";
 import PrecipitationCard from "./PrecipitationCard";
+import WindCard from "./WindCard";
 
 const HourlyWeatherSlider = ({ type }) => {
   const { state } = useContext(WeatherContext);
@@ -69,6 +70,12 @@ const HourlyWeatherSlider = ({ type }) => {
           state.weather.forecast.forecastday[state.day].hour.map(
             (item, index) => {
               return <PrecipitationCard key={`${type}-${index}`} item={item} />;
+            }
+          )}
+        {type === "wind" &&
+          state.weather.forecast.forecastday[state.day].hour.map(
+            (item, index) => {
+              return <WindCard key={`${type}-${index}`} item={item} />;
             }
           )}
       </div>

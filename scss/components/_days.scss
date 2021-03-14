@@ -3,14 +3,13 @@
   color: $textLight;
   .container {
     .links {
-      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+
       > *:not(:last-child) {
         margin-right: 1.6rem;
       }
 
       .day {
-        font-size: 1.8rem;
-        font-weight: 500;
         cursor: pointer;
 
         &.active {
@@ -21,9 +20,7 @@
 
     .times-and-dates {
       display: block;
-      // margin-top: 1rem;
       color: $textLight3;
-      font-weight: 400;
     }
   }
 }

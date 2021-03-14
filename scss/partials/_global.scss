@@ -18,9 +18,16 @@ a {
 
 // Global
 body {
-  font-size: $textBase;
+  font-size: 1.6rem;
   color: $textDark2;
   width: 100%;
+
+  @media (max-width: 420px) {
+    font-size: 1.4rem;
+  }
+  @media (max-height: 420px) {
+    font-size: 1.4rem;
+  }
 }
 
 nav,
@@ -34,6 +41,9 @@ footer {
   @media (max-width: 420px) {
     padding: 1rem $mobile;
   }
+  @media (max-height: 420px) {
+    padding: 1rem $mobile;
+  }
 }
 
 header,
@@ -44,7 +54,10 @@ section {
     padding: 4.8rem $tablet;
   }
   @media (max-width: 420px) {
-    padding: 2.4rem $mobile;
+    padding: $mobile;
+  }
+  @media (max-height: 420px) {
+    padding: $mobile;
   }
 }
 

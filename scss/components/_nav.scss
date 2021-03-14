@@ -15,15 +15,10 @@ nav {
     align-items: center;
     justify-content: space-between;
   }
+
   a {
     color: $textLight2;
     cursor: pointer;
-
-    &.logo {
-      font-size: $textLogo;
-      font-style: italic;
-      font-weight: 500;
-    }
 
     &.settings {
       display: flex;

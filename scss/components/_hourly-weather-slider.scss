@@ -17,6 +17,7 @@
     width: max-content;
     display: flex;
     cursor: grab;
+
     > *:not(:last-child) {
       margin-right: 2rem;
     }
@@ -27,15 +28,10 @@
       align-items: center;
 
       > *:not(:last-child) {
-        margin-bottom: 0.5rem;
+        margin-bottom: 1rem;
       }
 
       .volume {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        font-size: 1.4rem;
-        line-height: 1;
         color: $primary;
       }
 
@@ -44,41 +40,39 @@
         height: 6.4rem;
       }
 
-      .droplet {
-        overflow: hidden;
-        width: 6.4rem;
-        height: 6.4rem;
+      .icon {
+        &.droplet {
+          padding: 0 1rem;
+        }
+        &.wind {
+          padding: 0 1.5rem;
+        }
+      }
+
+      .droplet-icon {
+        width: 4.4rem;
+        height: 4.4rem;
         path {
-          stroke-width: 6px;
+          stroke-width: 10px;
         }
         .st0 {
-          stroke: #333333;
+          stroke: #929497;
           fill: none;
         }
         .st1 {
-          fill: $bgLight2;
+          fill: $bgLight;
         }
         .st2 {
           stroke: $primary;
           fill: $primary;
         }
       }
-    }
-  }
-}
 
-.droplet {
-  width: 250px;
-  height: 250px;
-  .st0 {
-    stroke: $textDark;
-    fill: none;
-  }
-  .st1 {
-    fill: $bgLight3;
-  }
-  .st2 {
-    stroke: $primary;
-    fill: $primary;
+      .wind-icon {
+        width: 3.4rem;
+        height: 3.4rem;
+        fill: $primary;
+      }
+    }
   }
 }

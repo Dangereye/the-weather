@@ -9,6 +9,12 @@ html {
   line-height: 1.618;
 }
 
+.logo {
+  font-size: $textLogo;
+  font-style: italic;
+  font-weight: 300;
+}
+
 h1 {
   font-size: 12rem;
   font-weight: 600;
@@ -36,6 +42,99 @@ h5 {
   font-weight: 600;
 }
 
-.times-and-dates {
+p {
+  font-weight: 300;
+}
+
+.region,
+.min-max-temp {
+  font-size: 1.6rem;
   font-weight: 500;
+}
+
+span {
+  text-transform: capitalize;
+
+  &.value {
+    font-weight: 600;
+  }
+}
+
+.day {
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.temp,
+.chance {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.volume,
+.speed {
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.time,
+.times-and-dates {
+  font-weight: 300;
+}
+
+button,
+.btn {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+@media (max-width: 420px) {
+  h1 {
+    font-size: 6rem;
+  }
+  h3 {
+    font-size: 2.4rem;
+  }
+  h4 {
+    font-size: 1.6rem;
+  }
+
+  h5 {
+    font-size: 1.4rem;
+  }
+
+  .day {
+    font-size: 1.6rem;
+  }
+  .times-and-dates {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-height: 420px) {
+  h1 {
+    font-size: 6rem;
+  }
+
+  h3 {
+    font-size: 2.4rem;
+  }
+
+  h4 {
+    font-size: 1.6rem;
+  }
+
+  h5 {
+    font-size: 1.4rem;
+  }
+
+  .day {
+    font-size: 1.6rem;
+  }
+
+  .times-and-dates {
+    font-size: 1.4rem;
+  }
 }
