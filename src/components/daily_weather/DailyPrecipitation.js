@@ -30,7 +30,7 @@ const HourlyPrecipitation = () => {
   return (
     <section style={{ backgroundColor: "#fff" }}>
       <div className="container">
-        <h4>Precipitation</h4>
+        <h2>Precipitation</h2>
         <p>{des}</p>
         <HourlyWeatherSlider type="precipitation" />
         <p className="daily-total">

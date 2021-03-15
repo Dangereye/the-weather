@@ -15,29 +15,14 @@ html {
   font-weight: 300;
 }
 
-h1 {
-  font-size: 12rem;
-  font-weight: 600;
-  line-height: 1.2;
-}
-
+h1,
 h2 {
-  font-size: 4.2rem;
+  font-size: 2.4rem;
   font-weight: 600;
-  line-height: 1.4;
+  margin-bottom: 0.5rem;
 }
 
 h3 {
-  font-size: 3.2rem;
-  font-weight: 500;
-}
-
-h4 {
-  font-size: 2.4rem;
-  font-weight: 600;
-}
-
-h5 {
   font-size: 1.8rem;
   font-weight: 600;
 }
@@ -49,10 +34,28 @@ p {
   }
 }
 
-.region,
-.min-max-temp {
+.overview-location {
+  font-size: 4rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.overview-condition {
+  font-size: 3.2rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.overview-region,
+.overview-min-max-temp {
   font-size: 1.6rem;
   font-weight: 500;
+}
+
+.overview-temp {
+  font-size: 12rem;
+  font-weight: 600;
+  line-height: 1.2;
 }
 
 .group {
@@ -96,17 +99,19 @@ button,
 }
 
 @media (max-width: 420px) {
-  h1 {
+  .overview-temp {
     font-size: 6rem;
   }
-  h3 {
+
+  .overview-condition {
     font-size: 2.4rem;
   }
-  h4 {
+  h1,
+  h2 {
     font-size: 1.6rem;
   }
 
-  h5 {
+  h3 {
     font-size: 1.4rem;
   }
 
@@ -120,19 +125,19 @@ button,
 }
 
 @media (max-height: 420px) {
-  h1 {
+  .overview-temp {
     font-size: 6rem;
   }
-
-  h3 {
+  .overview-condition {
     font-size: 2.4rem;
   }
 
-  h4 {
+  h1,
+  h2 {
     font-size: 1.6rem;
   }
 
-  h5 {
+  h3 {
     font-size: 1.4rem;
   }
 

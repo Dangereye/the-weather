@@ -36,6 +36,7 @@ const Overview = () => {
     <div className="overview">
       <form onSubmit={handleSubmit}>
         <input
+          className="overview-location"
           ref={input}
           type="text"
           value={location}
@@ -44,13 +45,15 @@ const Overview = () => {
           }}
         />
       </form>
-      <div className="region">
+      <div className="overview-region">
         {`${state.weather.location.region}, ${state.weather.location.country}`}
       </div>
       {/* <DateAndTime /> */}
-      <h1 className="temperature">{temp}</h1>
-      <h3>{state.weather.current.condition.text}</h3>
-      <div className="min-max-temp">{`${minTemp} / ${maxTemp}`}</div>
+      <div className="overview-temp">{temp}</div>
+      <div className="overview-condition">
+        {state.weather.current.condition.text}
+      </div>
+      <div className="overview-min-max-temp">{`${minTemp} / ${maxTemp}`}</div>
     </div>
   );
 };

@@ -18,9 +18,9 @@ a {
 
 // Global
 body {
+  width: 100%;
   font-size: 1.6rem;
   color: $textDark2;
-  width: 100%;
 
   @media (max-width: 420px) {
     font-size: 1.4rem;

@@ -50,7 +50,7 @@ const HourlyWind = () => {
   return (
     <section>
       <div className="container">
-        <h4>Wind</h4>
+        <h2>Wind</h2>
         <p>{des}</p>
         <HourlyWeatherSlider type="wind" />
       </div>

@@ -8,7 +8,7 @@ const HourlyConditions = () => {
   return (
     <section className="hourly-conditions">
       <div className="container">
-        <h4>Conditions</h4>
+        <h2>Conditions</h2>
         <p>
           {`${day.condition.text}. Average temperatures of around
           ${

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { WeatherContext } from "../contexts/WeatherContext";
 import DateComponent from "./shared/DateComponent";
-import DayComponent from "./hourly_weather/DayComponent";
+import DayComponent from "./daily_weather/DayComponent";
 
 const Days = () => {
   const { state, dispatch } = useContext(WeatherContext);

@@ -81,7 +81,7 @@ const CurrentConditions = () => {
   return (
     <section className="current-conditions">
       <div className="container">
-        <h4>Current Weather</h4>
+        <h1>Current Weather</h1>
         <DateAndTime data={now.last_updated} />
         <div className="groups">
           <ConditionGroup data={current.conditions} />
