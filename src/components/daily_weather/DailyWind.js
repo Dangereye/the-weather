@@ -11,7 +11,7 @@ const HourlyWind = () => {
       ? `${day.maxwind_mph}mph`
       : `${day.maxwind_kph}kph`;
 
-  const string = `with speeds up to ${windSpeed}.`;
+  const string = `with speeds reaching ${windSpeed}.`;
   const x = Math.round(day.maxwind_mph);
 
   useEffect(() => {

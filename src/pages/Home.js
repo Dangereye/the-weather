@@ -5,6 +5,7 @@ import Header from "../components/header/Header";
 import DailyConditions from "../components/daily_weather/DailyConditions";
 import DailyPrecipitation from "../components/daily_weather/DailyPrecipitation";
 import DailyWind from "../components/daily_weather/DailyWind";
+import DailyAstronomy from "../components/daily_weather/DailyAstronomy";
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
       <DailyConditions />
       <DailyPrecipitation />
       <DailyWind />
+      <DailyAstronomy />
     </>
   );
 };

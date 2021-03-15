@@ -1,6 +1,6 @@
 import React from "react";
 
-const DateComponent = ({ before, data }) => {
+const DateComponent = ({ data }) => {
   const dateOptions = {
     weekday: "long",
     month: "long",

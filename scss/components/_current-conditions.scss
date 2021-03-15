@@ -1,37 +1,35 @@
-.current-conditions {
-  .groups {
-    margin-top: 3rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
-    gap: 3rem;
+.groups {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
+  gap: 3rem;
 
-    .group {
-      width: 100%;
-      padding: 3rem;
-      color: $textLight;
-      background-color: $primary;
-      box-shadow: $boxShadow;
+  .group {
+    width: 100%;
+    padding: 3rem;
+    color: $textLight;
+    background-color: $primary;
+    box-shadow: $boxShadow;
 
-      &-list {
-        margin-top: 1rem;
+    &-list {
+      margin-top: 1rem;
 
-        > *:not(:last-child) {
-          margin-bottom: 0.5rem;
-        }
-      }
-
-      &-list-item {
-        display: flex;
-        justify-content: space-between;
+      > *:not(:last-child) {
+        margin-bottom: 0.5rem;
       }
     }
 
-    @media (max-width: 420px) {
-      gap: 1.6rem;
+    &-list-item {
+      display: flex;
+      justify-content: space-between;
     }
+  }
 
-    @media (max-height: 420px) {
-      gap: 1.6rem;
-    }
+  @media (max-width: 420px) {
+    gap: 1.6rem;
+  }
+
+  @media (max-height: 420px) {
+    gap: 1.6rem;
   }
 }

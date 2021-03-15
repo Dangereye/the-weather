@@ -6,6 +6,7 @@ import ConditionGroup from "./ConditionGroup";
 const CurrentConditions = () => {
   const { state } = useContext(WeatherContext);
   const now = state.weather.current;
+  const astro = state.weather.forecast.forecastday[state.day].astro;
   const current = {
     conditions: {
       title: "Conditions",
@@ -44,7 +45,7 @@ const CurrentConditions = () => {
               : `${now.feelslike_f}°f`,
         },
         {
-          humidity: now.humidity,
+          humidity: `${now.humidity}%`,
         },
         {
           pressure:
@@ -79,7 +80,7 @@ const CurrentConditions = () => {
     },
   };
   return (
-    <section className="current-conditions">
+    <section>
       <div className="container">
         <h1>Current Weather</h1>
         <DateAndTime data={now.last_updated} />
