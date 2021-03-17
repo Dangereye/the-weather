@@ -1,0 +1,10 @@
+section.settings {
+  min-height: 100vh;
+  .container {
+    margin-top: 5rem;
+    .radio-group {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}

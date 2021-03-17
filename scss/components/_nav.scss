@@ -14,16 +14,17 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-  }
 
-  a {
-    color: $textLight2;
-    cursor: pointer;
+    a {
+      color: $textLight2;
+      cursor: pointer;
 
-    &.settings {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      &.settings {
+        height: 1.6rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
     }
   }
 }

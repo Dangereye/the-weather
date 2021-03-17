@@ -11,22 +11,85 @@ input.overview-location {
   }
 }
 
-input[type="radio"] {
-  margin-right: 1rem;
+.radio-group {
+  margin: 0.5rem 0 1.6rem 0;
 }
 
-::placeholder {
+input[type="radio"] {
+  display: none;
+
+  &:checked + label:before {
+    border-color: $primary;
+    animation: ripple 0.2s linear forwards;
+  }
+
+  &:checked + label:after {
+    transform: scale(1);
+  }
+}
+
+label {
+  display: inline-block;
+  width: 12rem;
+  height: $radioSize;
+  position: relative;
+  padding: 0 ($radioSize + 10px);
+  margin-bottom: 0;
+  cursor: pointer;
+  vertical-align: bottom;
+
+  &:before,
+  &:after {
+    position: absolute;
+    content: "";
+    border-radius: 50%;
+    transition: 0.4s;
+  }
+
+  &:before {
+    left: 0;
+    top: 0;
+    width: $radioSize;
+    height: $radioSize;
+    border: 2px solid $primary;
+  }
+
+  &:after {
+    top: $radioSize / 2 - $radioCheckedSize / 2;
+    left: $radioSize / 2 - $radioCheckedSize / 2;
+    width: $radioCheckedSize;
+    height: $radioCheckedSize;
+    transform: scale(0);
+    background: $primary;
+  }
+}
+
+input.overview-location::placeholder {
   color: $placeholder;
 }
 
+@keyframes ripple {
+  0% {
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0);
+  }
+
+  50% {
+    box-shadow: 0px 0px 0px $rippleSize rgba(0, 0, 0, 0.1);
+  }
+
+  100% {
+    box-shadow: 0px 0px 0px $rippleSize rgba(0, 0, 0, 0);
+  }
+}
+
 @media (max-width: 420px) {
-  input {
+  input.overview-location {
     font-size: 2.4rem;
   }
 }
 
 @media (max-height: 420px) {
-  input {
+  input.overview-location {
     font-size: 2.4rem;
   }
 }

@@ -16,7 +16,9 @@ const WindCard = ({ item }) => {
       </div>
 
       <div className="speed">
-        {state.settings.speed === "mph" ? `${item.wind_mph}` : `${item.wind}`}
+        {state.settings.speed === "mph"
+          ? `${item.wind_mph}`
+          : `${item.wind_kph}`}
       </div>
       <div className="time">
         {new Date(item.time).toLocaleTimeString("en-GB", {

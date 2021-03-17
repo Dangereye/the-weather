@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { BsFillGearFill } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
-  const [background, setBackground] = useState();
+  const { pathname } = useLocation();
+  const [background, setBackground] = useState(false);
 
   const changeBg = () => {
     if (window.pageYOffset > 100) {
@@ -14,10 +15,20 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", changeBg);
-    return () => {
-      window.removeEventListener("scroll", changeBg);
-    };
+    if (pathname === "/settings") {
+      setBackground(true);
+    } else {
+      setBackground(false);
+    }
+  }, [pathname]);
+
+  useEffect(() => {
+    if (pathname !== "/settings") {
+      window.addEventListener("scroll", changeBg);
+      return () => {
+        window.removeEventListener("scroll", changeBg);
+      };
+    }
   });
 
   const bgColor = { background: background ? "#000" : "transparent" };
