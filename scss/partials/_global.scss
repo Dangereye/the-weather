@@ -54,10 +54,10 @@ section {
     padding: 4.8rem $tablet;
   }
   @media (max-width: 420px) {
-    padding: $mobile;
+    padding: 2.4rem $mobile;
   }
   @media (max-height: 420px) {
-    padding: $mobile;
+    padding: 2.4rem $mobile;
   }
 }
 
