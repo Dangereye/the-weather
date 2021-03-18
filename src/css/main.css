@@ -251,62 +251,6 @@ input.overview-location:focus {
   border: 1px solid #fff;
 }
 
-.radio-group {
-  margin: 0.5rem 0 1.6rem 0;
-}
-
-input[type="radio"] {
-  display: none;
-}
-
-input[type="radio"]:checked + label:before {
-  border-color: #0073db;
-  -webkit-animation: ripple 0.2s linear forwards;
-          animation: ripple 0.2s linear forwards;
-}
-
-input[type="radio"]:checked + label:after {
-  -webkit-transform: scale(1);
-          transform: scale(1);
-}
-
-label {
-  display: inline-block;
-  width: 12rem;
-  height: 20px;
-  position: relative;
-  padding: 0 30px;
-  margin-bottom: 0;
-  cursor: pointer;
-  vertical-align: bottom;
-}
-
-label:before, label:after {
-  position: absolute;
-  content: "";
-  border-radius: 50%;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
-}
-
-label:before {
-  left: 0;
-  top: 0;
-  width: 20px;
-  height: 20px;
-  border: 2px solid #0073db;
-}
-
-label:after {
-  top: 5px;
-  left: 5px;
-  width: 10px;
-  height: 10px;
-  -webkit-transform: scale(0);
-          transform: scale(0);
-  background: #0073db;
-}
-
 input.overview-location::-webkit-input-placeholder {
   color: #ccc;
 }
@@ -323,34 +267,15 @@ input.overview-location::placeholder {
   color: #ccc;
 }
 
-@-webkit-keyframes ripple {
-  0% {
-    -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0);
-            box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0);
-  }
-  50% {
-    -webkit-box-shadow: 0px 0px 0px 15px rgba(0, 0, 0, 0.1);
-            box-shadow: 0px 0px 0px 15px rgba(0, 0, 0, 0.1);
-  }
-  100% {
-    -webkit-box-shadow: 0px 0px 0px 15px rgba(0, 0, 0, 0);
-            box-shadow: 0px 0px 0px 15px rgba(0, 0, 0, 0);
-  }
+input[type="radio"] {
+  display: inline-block;
+  margin: 1.25rem;
+  width: 2.5rem;
+  height: 2.5rem;
 }
 
-@keyframes ripple {
-  0% {
-    -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0);
-            box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0);
-  }
-  50% {
-    -webkit-box-shadow: 0px 0px 0px 15px rgba(0, 0, 0, 0.1);
-            box-shadow: 0px 0px 0px 15px rgba(0, 0, 0, 0.1);
-  }
-  100% {
-    -webkit-box-shadow: 0px 0px 0px 15px rgba(0, 0, 0, 0);
-            box-shadow: 0px 0px 0px 15px rgba(0, 0, 0, 0);
-  }
+label {
+  display: inline-block;
 }
 
 @media (max-width: 420px) {
@@ -424,7 +349,6 @@ nav .container a {
 }
 
 nav .container a.settings {
-  height: 1.6rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -675,13 +599,83 @@ section.settings .container {
   margin-top: 5rem;
 }
 
-section.settings .container .radio-group {
+section.settings .container .setting {
+  margin-top: 0.2rem;
+  background-color: white;
+  padding: 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+section.settings .container .setting-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+section.settings .container .setting-icon {
+  width: 5rem;
+  height: 5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+}
+
+section.settings .container .setting-icon svg {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+section.settings .container .setting-text p {
+  color: #0073db;
+}
+
+section.settings .container .setting .status {
+  -webkit-transform: rotate(0);
+          transform: rotate(0);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+section.settings .container .setting.active .status {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+section.settings .container .setting-options {
+  background-color: white;
+  padding: 0 2rem;
+}
+
+section.settings .container .setting-options .option {
+  padding: 1rem 0;
+  border-top: 1px solid #f2f2f2;
+}
+
+section.settings .container .setting-options .option .radio-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .loader {

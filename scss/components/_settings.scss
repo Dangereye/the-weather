@@ -1,10 +1,67 @@
 section.settings {
   min-height: 100vh;
+
   .container {
     margin-top: 5rem;
-    .radio-group {
+
+    .setting {
+      margin-top: 0.2rem;
+      background-color: $bgLight;
+      padding: 2rem;
       display: flex;
       justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+
+      &-content {
+        display: flex;
+        align-items: center;
+      }
+
+      &-icon {
+        width: 5rem;
+        height: 5rem;
+        display: flex;
+        justify-content: center;
+        align-items: start;
+
+        svg {
+          width: 2.5rem;
+          height: 2.5rem;
+        }
+      }
+
+      &-text {
+        p {
+          color: $primary;
+        }
+      }
+
+      .status {
+        transform: rotate(0);
+        transition: 0.4s;
+      }
+
+      &.active {
+        .status {
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+    .setting-options {
+      background-color: $bgLight;
+      padding: 0 2rem;
+
+      .option {
+        padding: 1rem 0;
+        border-top: 1px solid $bgLight2;
+
+        .radio-button {
+          display: flex;
+          align-items: center;
+        }
+      }
     }
   }
 }
