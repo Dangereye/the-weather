@@ -19,10 +19,10 @@ section.settings {
       }
 
       &-icon {
-        width: 5rem;
+        margin-right: 1.6rem;
         height: 5rem;
         display: flex;
-        justify-content: center;
+        justify-content: start;
         align-items: start;
 
         svg {
@@ -54,7 +54,7 @@ section.settings {
       padding: 0 2rem;
 
       .option {
-        padding: 1rem 0;
+        padding: 2rem 0;
         border-top: 1px solid $bgLight2;
 
         .radio-button {
