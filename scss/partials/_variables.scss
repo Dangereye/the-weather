@@ -19,7 +19,7 @@ $textLight: rgb(255, 255, 255);
 $textLight2: darken($textLight, 5%);
 $textLight3: darken($textLight, 10%);
 
-$placeholder: #ccc;
+$placeholder: $textLight;
 
 $error: crimson;
 

@@ -5,6 +5,7 @@ const Overview = () => {
   const { state, dispatch } = useContext(WeatherContext);
   const [location, setLocation] = useState(state.weather.location.name);
   const input = useRef();
+  const day = state.weather.forecast.forecastday[0].day;
 
   useEffect(() => {
     setLocation(state.weather.location.name);
@@ -12,9 +13,12 @@ const Overview = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    localStorage.setItem("lsLocation", JSON.stringify(location));
-    dispatch({ type: "LOCATION", payload: location });
-    input.current.blur();
+    if (location !== "") {
+      localStorage.setItem("lsLocation", JSON.stringify(location));
+      dispatch({ type: "LOADING", payload: true });
+      dispatch({ type: "LOCATION", payload: location });
+      input.current.blur();
+    }
   };
 
   const temp =
@@ -24,13 +28,13 @@ const Overview = () => {
 
   const minTemp =
     state.settings.temp === "celsius"
-      ? `${state.weather.forecast.forecastday[0].day.mintemp_c}°c`
-      : `${state.weather.forecast.forecastday[0].day.mintemp_f}°f`;
+      ? `${day.mintemp_c}°c`
+      : `${day.mintemp_f}°f`;
 
   const maxTemp =
     state.settings.temp === "celsius"
-      ? `${state.weather.forecast.forecastday[0].day.maxtemp_c}°c`
-      : `${state.weather.forecast.forecastday[0].day.maxtemp_f}°f`;
+      ? `${day.maxtemp_c}°c`
+      : `${day.maxtemp_f}°f`;
 
   return (
     <div className="overview">
@@ -43,6 +47,7 @@ const Overview = () => {
           onChange={(e) => {
             setLocation(e.target.value);
           }}
+          placeholder="New Location?"
         />
       </form>
       <div className="overview-region">
