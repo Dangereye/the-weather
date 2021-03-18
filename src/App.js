@@ -12,7 +12,7 @@ const App = () => {
   const { state, dispatch } = useContext(WeatherContext);
   useEffect(() => {
     fetch(
-      `http://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_KEY}&q=${state.location}&days=3`
+      `http://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_WEATHER_KEY}&q=${state.location}&days=3`
     )
       .then((res) => {
         if (res.status === 400) {
@@ -38,6 +38,29 @@ const App = () => {
         dispatch({ type: "LOADING", payload: false });
       });
   }, [state.location, state.day, dispatch, state.isLoading]);
+
+  useEffect(() => {
+    if (state.weather) {
+      fetch(
+        `https://api.unsplash.com/photos/random/?client_id=${process.env.REACT_APP_IMAGE_KEY}&query=${state.weather.current.condition.text}`
+      )
+        .then((res) => {
+          if (!res.ok) {
+            throw Error(
+              `Failed to fetch image. Please reload the page, or try again later.`
+            );
+          }
+          return res.json();
+        })
+        .then((data) => {
+          dispatch({ type: "IMAGE", payload: data.urls.regular });
+        })
+        .catch((error) => {
+          dispatch({ type: "ERROR", payload: error.message });
+          dispatch({ type: "LOADING", payload: false });
+        });
+    }
+  }, [state.weather, dispatch]);
 
   return (
     <div className="app">

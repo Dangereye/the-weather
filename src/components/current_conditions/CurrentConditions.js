@@ -6,7 +6,6 @@ import ConditionGroup from "./ConditionGroup";
 const CurrentConditions = () => {
   const { state } = useContext(WeatherContext);
   const now = state.weather.current;
-  const astro = state.weather.forecast.forecastday[state.day].astro;
   const current = {
     conditions: {
       title: "Conditions",

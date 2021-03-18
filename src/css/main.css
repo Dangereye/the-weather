@@ -360,7 +360,13 @@ nav .container a.settings {
           align-items: center;
 }
 
+nav .container a.settings svg {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
 header {
+  position: relative;
   height: 100vh;
   background-position: center;
   background-size: cover;
@@ -368,6 +374,7 @@ header {
 }
 
 header .container {
+  position: relative;
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -382,6 +389,7 @@ header .container {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  z-index: 2;
 }
 
 header .container .scroll-down {
@@ -391,6 +399,18 @@ header .container .scroll-down {
 header .container .scroll-down svg {
   width: 2.4rem;
   height: 2.4rem;
+}
+
+header::after {
+  display: block;
+  width: 100%;
+  height: 100%;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 115, 219, 0.4);
+  z-index: 1;
 }
 
 .overview {
@@ -632,10 +652,10 @@ section.settings .container .setting-icon {
   display: flex;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
-          justify-content: start;
+          justify-content: flex-start;
   -webkit-box-align: start;
       -ms-flex-align: start;
-          align-items: start;
+          align-items: flex-start;
 }
 
 section.settings .container .setting-icon svg {

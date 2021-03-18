@@ -16,6 +16,8 @@ const weatherReducer = (state, action) => {
       return { ...state, day: action.payload };
     case "FORECAST":
       return { ...state, weather: action.payload };
+    case "IMAGE":
+      return { ...state, image: action.payload };
     case "SETTINGS":
       return { ...state, settings: action.payload };
     default:
@@ -35,6 +37,7 @@ const WeatherContextProvider = ({ children }) => {
     location: currentLocation,
     day: 0,
     weather: null,
+    image: null,
     settings: {
       temp: "celsius",
       speed: "mph",

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BsFillGearFill } from "react-icons/bs";
+import { FiSettings } from "react-icons/fi";
 import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
@@ -40,7 +40,7 @@ const Navbar = () => {
           the weather
         </Link>
         <Link to="/settings" className="settings">
-          <BsFillGearFill />
+          <FiSettings />
         </Link>
       </div>
     </nav>
