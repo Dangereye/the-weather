@@ -27,9 +27,11 @@ const weatherReducer = (state, action) => {
 
 const WeatherContextProvider = ({ children }) => {
   let currentLocation = "London";
+
   if (localStorage.getItem("lsLocation")) {
     currentLocation = JSON.parse(localStorage.getItem("lsLocation"));
   }
+
   const [state, dispatch] = useReducer(weatherReducer, {
     isLoading: true,
     error: null,
@@ -39,6 +41,7 @@ const WeatherContextProvider = ({ children }) => {
     weather: null,
     image: null,
     settings: {
+      geoLocation: "off",
       temp: "celsius",
       speed: "mph",
       distance: "miles",
@@ -46,6 +49,7 @@ const WeatherContextProvider = ({ children }) => {
       pressure: "mb",
     },
   });
+
   return (
     <WeatherContext.Provider value={{ state, dispatch }}>
       {children}

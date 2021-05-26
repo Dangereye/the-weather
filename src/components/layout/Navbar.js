@@ -39,7 +39,10 @@ const Navbar = () => {
         <Link to="/" className="logo">
           the weather
         </Link>
-        <Link to="/settings" className="settings">
+        <Link
+          to={pathname === "/settings" ? "/" : "/settings"}
+          className="settings"
+        >
           <FiSettings />
         </Link>
       </div>

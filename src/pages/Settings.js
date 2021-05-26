@@ -7,10 +7,12 @@ import { IoMdSpeedometer } from "react-icons/io";
 import { IoWaterOutline } from "react-icons/io5";
 import { RiWindyFill } from "react-icons/ri";
 import { MdVisibility } from "react-icons/md";
+import { HiOutlineLocationMarker } from "react-icons/hi";
 
 const Settings = () => {
   const { state, dispatch } = useContext(WeatherContext);
 
+  const [isGeo, setIsGeo] = useState(false);
   const [isTemp, setIsTemp] = useState(false);
   const [isSpeed, setIsSpeed] = useState(false);
   const [isDistance, setIsDistance] = useState(false);
@@ -29,6 +31,46 @@ const Settings = () => {
     <section className="settings">
       <div className="container">
         <h2>Settings</h2>
+        {/* Geo Location */}
+        <div
+          className={isGeo ? "setting active" : "setting"}
+          onClick={() => setIsGeo(!isGeo)}
+        >
+          <div className="setting-content">
+            <div className="setting-icon">
+              <HiOutlineLocationMarker />
+            </div>
+            <div className="setting-text">
+              <h4>Location services</h4>
+              <p>{state.settings.geoLocation}</p>
+            </div>
+          </div>
+          <BsChevronDown className="status" />
+        </div>
+        {isGeo && (
+          <div className="setting-options">
+            <div className="option">
+              <RadioButton
+                id="on"
+                changed={handleChange}
+                isSelected={state.settings.geoLocation === "on"}
+                name="geoLocation"
+                label="On"
+                value="on"
+              />
+            </div>
+            <div className="option">
+              <RadioButton
+                id="off"
+                changed={handleChange}
+                isSelected={state.settings.geoLocation === "off"}
+                name="geoLocation"
+                label="Off"
+                value="off"
+              />
+            </div>
+          </div>
+        )}
         {/* Temperature */}
         <div
           className={isTemp ? "setting active" : "setting"}

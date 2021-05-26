@@ -7,12 +7,17 @@ import Home from "./pages/Home";
 import Settings from "./pages/Settings";
 import Loader from "./components/layout/Loader";
 import Message from "./components/layout/Message";
+import useGeoLocation from "./hooks/useGeoLocation";
 
 const App = () => {
   const { state, dispatch } = useContext(WeatherContext);
+  const { lat, lon } = useGeoLocation();
+  const geo = state.settings.geoLocation === "on" ? `${lat}, ${lon}` : null;
   useEffect(() => {
     fetch(
-      `http://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_WEATHER_KEY}&q=${state.location}&days=3`
+      `http://api.weatherapi.com/v1/forecast.json?key=${
+        process.env.REACT_APP_WEATHER_KEY
+      }&q=${geo ? geo : state.location}&days=3`
     )
       .then((res) => {
         if (res.status === 400) {
@@ -37,7 +42,7 @@ const App = () => {
         dispatch({ type: "ERROR", payload: error.message });
         dispatch({ type: "LOADING", payload: false });
       });
-  }, [state.location, state.day, dispatch, state.isLoading]);
+  }, [state.location, state.day, dispatch, state.isLoading, lat, lon, geo]);
 
   useEffect(() => {
     if (state.weather) {
