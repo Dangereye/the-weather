@@ -9,13 +9,15 @@ const Overview = () => {
 
   useEffect(() => {
     setLocation(state.weather.location.name);
-  }, [state]);
+  }, [state.weather.location]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (location !== "") {
-      localStorage.setItem("lsLocation", JSON.stringify(location));
-      dispatch({ type: "LOADING", payload: true });
+      dispatch({
+        type: "SETTINGS",
+        payload: { ...state.settings, geoLocation: "off" },
+      });
       dispatch({ type: "LOCATION", payload: location });
       input.current.blur();
     }

@@ -8,9 +8,8 @@ const weatherReducer = (state, action) => {
       return { ...state, isLoading: action.payload };
     case "ERROR":
       return { ...state, error: action.payload };
-    case "TOGGLE_DETAILS":
-      return { ...state, details: action.payload };
     case "LOCATION":
+      localStorage.setItem("saved-location", JSON.stringify(action.payload));
       return { ...state, location: action.payload };
     case "DAY":
       return { ...state, day: action.payload };
@@ -19,6 +18,7 @@ const weatherReducer = (state, action) => {
     case "IMAGE":
       return { ...state, image: action.payload };
     case "SETTINGS":
+      localStorage.setItem("settings", JSON.stringify(action.payload));
       return { ...state, settings: action.payload };
     default:
       return state;
@@ -26,28 +26,25 @@ const weatherReducer = (state, action) => {
 };
 
 const WeatherContextProvider = ({ children }) => {
-  let currentLocation = "London";
-
-  if (localStorage.getItem("lsLocation")) {
-    currentLocation = JSON.parse(localStorage.getItem("lsLocation"));
-  }
-
   const [state, dispatch] = useReducer(weatherReducer, {
     isLoading: true,
     error: null,
-    details: false,
-    location: currentLocation,
+    location: localStorage.getItem("saved-location")
+      ? JSON.parse(localStorage.getItem("saved-location"))
+      : "london",
     day: 0,
     weather: null,
     image: null,
-    settings: {
-      geoLocation: "off",
-      temp: "celsius",
-      speed: "mph",
-      distance: "miles",
-      precipitation: "mm",
-      pressure: "mb",
-    },
+    settings: localStorage.getItem("settings")
+      ? JSON.parse(localStorage.getItem("settings"))
+      : {
+          geoLocation: "off",
+          temp: "celsius",
+          speed: "mph",
+          distance: "miles",
+          precipitation: "mm",
+          pressure: "mb",
+        },
   });
 
   return (

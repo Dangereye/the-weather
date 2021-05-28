@@ -11,67 +11,57 @@ import useGeoLocation from "./hooks/useGeoLocation";
 
 const App = () => {
   const { state, dispatch } = useContext(WeatherContext);
-  const { lat, lon } = useGeoLocation();
-  const geo = state.settings.geoLocation === "on" ? `${lat}, ${lon}` : null;
-  useEffect(() => {
-    fetch(
-      `http://api.weatherapi.com/v1/forecast.json?key=${
-        process.env.REACT_APP_WEATHER_KEY
-      }&q=${geo ? geo : state.location}&days=3`
-    )
-      .then((res) => {
-        if (res.status === 400) {
-          localStorage.clear();
-          console.log(res);
-          throw Error(`Oops! Unknown Location.`);
-        } else if (!res.ok) {
-          console.log(res);
-          throw Error(
-            `Oops! Something went wrong? Please reload the page, or try again later.`
-          );
-        }
-        return res.json();
-      })
-      .then((data) => {
-        dispatch({ type: "FORECAST", payload: data });
-        dispatch({ type: "LOADING", payload: false });
-        dispatch({ type: "ERROR", payload: null });
-      })
-
-      .catch((error) => {
-        dispatch({ type: "ERROR", payload: error.message });
-        dispatch({ type: "LOADING", payload: false });
-      });
-  }, [state.location, state.day, dispatch, state.isLoading, lat, lon, geo]);
+  const { geo } = useGeoLocation();
 
   useEffect(() => {
-    if (state.weather) {
+    const getWeather = (location) => {
       fetch(
-        `https://api.unsplash.com/photos/random/?client_id=${process.env.REACT_APP_IMAGE_KEY}&query=${state.weather.current.condition.text}`
+        `http://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_WEATHER_KEY}&q=${location}&days=3`
       )
         .then((res) => {
-          if (!res.ok) {
+          if (res.status === 400) {
+            localStorage.clear();
+            console.log(res);
+            throw Error(`Oops! Unknown Location.`);
+          } else if (!res.ok) {
+            console.log(res);
             throw Error(
-              `Failed to fetch image. Please reload the page, or try again later.`
+              `Oops! Something went wrong? Please reload the page, or try again later.`
             );
           }
           return res.json();
         })
+
         .then((data) => {
-          dispatch({ type: "IMAGE", payload: data.urls.regular });
+          dispatch({ type: "FORECAST", payload: data });
+          dispatch({ type: "LOADING", payload: false });
+          dispatch({ type: "ERROR", payload: null });
         })
+
         .catch((error) => {
           dispatch({ type: "ERROR", payload: error.message });
           dispatch({ type: "LOADING", payload: false });
         });
+    };
+    if (state.settings.geoLocation === "on") {
+      getWeather(geo);
+    } else {
+      getWeather(state.location);
     }
-  }, [state.weather, dispatch]);
+  }, [geo, state.settings.geoLocation, state.location, dispatch]);
+
+  // useEffect(() => {
+  //   if (state.weather) {
+  //     getBackgroundImage();
+  //   }
+  //   // eslint-disable-line react-hooks/exhaustive-deps
+  // }, [state.weather]);
 
   return (
     <div className="app">
       <Router>
         <Navbar />
-        {state.isLoading && <Loader text="Fetching weather, please wait.." />}
+        {state.isLoading && <Loader />}
         {state.error && <Message text={state.error} role="error" />}
         {state.weather && (
           <Switch>

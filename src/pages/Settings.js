@@ -11,7 +11,6 @@ import { HiOutlineLocationMarker } from "react-icons/hi";
 
 const Settings = () => {
   const { state, dispatch } = useContext(WeatherContext);
-
   const [isGeo, setIsGeo] = useState(false);
   const [isTemp, setIsTemp] = useState(false);
   const [isSpeed, setIsSpeed] = useState(false);
@@ -21,6 +20,7 @@ const Settings = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    dispatch({ type: "LOADING", payload: true });
     dispatch({
       type: "SETTINGS",
       payload: { ...state.settings, [name]: value },
