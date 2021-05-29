@@ -8,12 +8,11 @@ import DailyPrecipitation from "../components/daily_weather/DailyPrecipitation";
 import DailyWind from "../components/daily_weather/DailyWind";
 import DailyAstronomy from "../components/daily_weather/DailyAstronomy";
 
-const Home = () => {
+const Home = ({ location }) => {
   const { state } = useContext(WeatherContext);
-
   useEffect(() => {
     window.scrollTo(0, 0);
-  });
+  }, [location.pathname]);
 
   return (
     <>
