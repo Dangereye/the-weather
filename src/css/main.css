@@ -313,7 +313,7 @@ button,
 button.dark,
 .btn.dark {
   color: white;
-  background-color: #0073db;
+  background-color: #1678ce;
 }
 
 .app {
@@ -381,7 +381,7 @@ header {
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
-  background-color: #0073db;
+  background-color: #1678ce;
 }
 
 header .container {
@@ -420,7 +420,7 @@ header::after {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: rgba(0, 115, 219, 0.6);
+  background-color: rgba(22, 120, 206, 0.6);
   z-index: 1;
 }
 
@@ -472,7 +472,7 @@ header::after {
   width: 100%;
   padding: 3rem;
   color: white;
-  background-color: #0073db;
+  background-color: #1678ce;
   -webkit-box-shadow: 0 2px 7.5px rgba(0, 0, 0, 0.2), 0 7.5px 15px rgba(0, 0, 0, 0.2);
           box-shadow: 0 2px 7.5px rgba(0, 0, 0, 0.2), 0 7.5px 15px rgba(0, 0, 0, 0.2);
 }
@@ -526,7 +526,7 @@ header::after {
 }
 
 .days .container .links .day.active {
-  color: #0073db;
+  color: #1678ce;
 }
 
 .days .container .times-and-dates {
@@ -586,7 +586,7 @@ header::after {
 }
 
 .hourly-weather-slider .items .item-card .volume {
-  color: #0073db;
+  color: #1678ce;
 }
 
 .hourly-weather-slider .items .item-card img {
@@ -621,14 +621,14 @@ header::after {
 }
 
 .hourly-weather-slider .items .item-card .droplet-icon .st2 {
-  stroke: #0073db;
-  fill: #0073db;
+  stroke: #1678ce;
+  fill: #1678ce;
 }
 
 .hourly-weather-slider .items .item-card .wind-icon {
   width: 3.4rem;
   height: 3.4rem;
-  fill: #0073db;
+  fill: #1678ce;
 }
 
 p span {
@@ -692,7 +692,7 @@ section.settings .container .setting-icon svg {
 }
 
 section.settings .container .setting-text p {
-  color: #0073db;
+  color: #1678ce;
 }
 
 section.settings .container .setting .status {
