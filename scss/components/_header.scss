@@ -4,6 +4,7 @@ header {
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
+  background-color: $primary;
 
   .container {
     position: relative;
@@ -31,7 +32,7 @@ header {
     position: absolute;
     top: 0;
     left: 0;
-    background-color: rgba($primary, 0.4);
+    background-color: rgba($primary, 0.6);
     z-index: 1;
   }
 }

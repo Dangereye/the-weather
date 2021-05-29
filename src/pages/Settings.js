@@ -20,10 +20,18 @@ const Settings = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    dispatch({ type: "LOADING", payload: true });
     dispatch({
       type: "SETTINGS",
       payload: { ...state.settings, [name]: value },
+    });
+  };
+
+  const handleGeoChange = (e) => {
+    const { value } = e.target;
+    dispatch({ type: "LOADING", payload: true });
+    dispatch({
+      type: "SETTINGS",
+      payload: { ...state.settings, geoLocation: value },
     });
   };
 
@@ -52,7 +60,7 @@ const Settings = () => {
             <div className="option">
               <RadioButton
                 id="on"
-                changed={handleChange}
+                changed={handleGeoChange}
                 isSelected={state.settings.geoLocation === "on"}
                 name="geoLocation"
                 label="On"
@@ -62,7 +70,7 @@ const Settings = () => {
             <div className="option">
               <RadioButton
                 id="off"
-                changed={handleChange}
+                changed={handleGeoChange}
                 isSelected={state.settings.geoLocation === "off"}
                 name="geoLocation"
                 label="Off"

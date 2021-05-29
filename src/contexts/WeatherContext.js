@@ -8,6 +8,8 @@ const weatherReducer = (state, action) => {
       return { ...state, isLoading: action.payload };
     case "ERROR":
       return { ...state, error: action.payload };
+    case "MESSAGE":
+      return { ...state, message: action.payload };
     case "LOCATION":
       localStorage.setItem("saved-location", JSON.stringify(action.payload));
       return { ...state, location: action.payload };
@@ -28,6 +30,7 @@ const weatherReducer = (state, action) => {
 const WeatherContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(weatherReducer, {
     isLoading: true,
+    message: { isActive: false, text: "" },
     error: null,
     location: localStorage.getItem("saved-location")
       ? JSON.parse(localStorage.getItem("saved-location"))

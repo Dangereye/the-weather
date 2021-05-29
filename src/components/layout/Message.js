@@ -1,15 +1,27 @@
-import React from "react";
-import { IoClose } from "react-icons/io5";
+import React, { useContext } from "react";
+import { WeatherContext } from "../../contexts/WeatherContext";
 
-const Message = ({ text, role }) => {
+const Message = ({ message }) => {
+  const { state, dispatch } = useContext(WeatherContext);
+
+  const handleClick = () => {
+    dispatch({ type: "LOADING", payload: true });
+    dispatch({
+      type: "MESSAGE",
+      payload: { ...state.message, isActive: false },
+    });
+    dispatch({ type: "ERROR", payload: null });
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
+  };
   return (
-    <div className={`message ${role}`}>
-      <div className="container">
-        <span>{text}</span>
-        <button className="reload" onClick={() => window.location.reload()}>
-          <IoClose />
-        </button>
-      </div>
+    <div className={`message ${state.message.isActive && "active"}`}>
+      <h3>Message:</h3>
+      <p>{message}</p>
+      <button className="btn dark" onClick={handleClick}>
+        Retry
+      </button>
     </div>
   );
 };

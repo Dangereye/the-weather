@@ -3,11 +3,16 @@ input.overview-location {
   padding: 0;
   color: $textLight;
   background-color: transparent;
-  border: none;
+  border: 1px solid transparent;
   outline: none;
+  transition: 0.4s;
+  &:hover {
+    cursor: pointer;
+  }
 
+  &:hover,
   &:focus {
-    border: 1px solid #fff;
+    background-color: rgba(0, 0, 0, 0.4);
   }
 
   &::placeholder {
@@ -16,6 +21,7 @@ input.overview-location {
 }
 
 input[type="radio"] {
+  cursor: pointer;
   display: inline-block;
   margin-right: 1.6rem;
   width: 2.5rem;
@@ -23,6 +29,7 @@ input[type="radio"] {
 }
 
 label {
+  cursor: pointer;
   display: inline-block;
 }
 

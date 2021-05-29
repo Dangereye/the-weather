@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { WeatherContext } from "../contexts/WeatherContext";
 import CurrentConditions from "../components/current_conditions/CurrentConditions";
 import Days from "../components/Days";
 import Header from "../components/header/Header";
@@ -8,15 +9,20 @@ import DailyWind from "../components/daily_weather/DailyWind";
 import DailyAstronomy from "../components/daily_weather/DailyAstronomy";
 
 const Home = () => {
+  const { state } = useContext(WeatherContext);
   return (
     <>
       <Header />
-      <CurrentConditions />
-      <Days />
-      <DailyConditions />
-      <DailyPrecipitation />
-      <DailyWind />
-      <DailyAstronomy />
+      {state.weather && (
+        <>
+          <CurrentConditions />
+          <Days />
+          <DailyConditions />
+          <DailyPrecipitation />
+          <DailyWind />
+          <DailyAstronomy />
+        </>
+      )}
     </>
   );
 };

@@ -5,7 +5,6 @@ import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import Home from "./pages/Home";
 import Settings from "./pages/Settings";
-import Loader from "./components/layout/Loader";
 import Message from "./components/layout/Message";
 import useGeoLocation from "./hooks/useGeoLocation";
 
@@ -22,12 +21,26 @@ const App = () => {
           if (res.status === 400) {
             localStorage.clear();
             console.log(res);
-            throw Error(`Oops! Unknown Location.`);
+            dispatch({ type: "FORECAST", payload: null });
+            dispatch({
+              type: "MESSAGE",
+              payload: {
+                isActive: true,
+                text: `Sorry, we could not find that location.`,
+              },
+            });
+            throw Error("Error");
           } else if (!res.ok) {
             console.log(res);
-            throw Error(
-              `Oops! Something went wrong? Please reload the page, or try again later.`
-            );
+            dispatch({ type: "FORECAST", payload: null });
+            dispatch({
+              type: "MESSAGE",
+              payload: {
+                isActive: true,
+                text: `Oops! Something went wrong.`,
+              },
+            });
+            throw Error("Error");
           }
           return res.json();
         })
@@ -43,32 +56,42 @@ const App = () => {
           dispatch({ type: "LOADING", payload: false });
         });
     };
-    if (state.settings.geoLocation === "on") {
+    if (state.settings.geoLocation === "on" && geo !== null) {
       getWeather(geo);
     } else {
       getWeather(state.location);
     }
   }, [geo, state.settings.geoLocation, state.location, dispatch]);
 
-  // useEffect(() => {
-  //   if (state.weather) {
-  //     getBackgroundImage();
-  //   }
-  //   // eslint-disable-line react-hooks/exhaustive-deps
-  // }, [state.weather]);
+  useEffect(() => {
+    if (state.weather) {
+      fetch(
+        `https://api.unsplash.com/photos/random/?client_id=${process.env.REACT_APP_IMAGE_KEY}&query=${state.weather.current.condition.text}`
+      )
+        .then((res) => {
+          if (!res.ok) {
+            throw Error(`Failed to fetch image.`);
+          }
+          return res.json();
+        })
+        .then((data) => {
+          dispatch({ type: "IMAGE", payload: data.urls.regular });
+        })
+        .catch((error) => {
+          dispatch({ type: "LOADING", payload: false });
+        });
+    }
+  }, [state.weather, dispatch]);
 
   return (
     <div className="app">
       <Router>
         <Navbar />
-        {state.isLoading && <Loader />}
-        {state.error && <Message text={state.error} role="error" />}
-        {state.weather && (
-          <Switch>
-            <Route path="/" exact component={Home} />
-            <Route path="/settings" exact component={Settings} />
-          </Switch>
-        )}
+        <Message message={state.message.text} />
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/settings" exact component={Settings} />
+        </Switch>
         <Footer />
       </Router>
     </div>

@@ -1,21 +1,26 @@
 .message {
   position: fixed;
-  bottom: 0;
-  left: 0;
+  bottom: -30rem;
+  left: 2rem;
   width: 100%;
+  max-width: max-content;
+  padding: 4rem;
   color: $textDark2;
-  background-color: $bgLight;
+  background-color: rgba($bgLight, 0.9);
   z-index: 9;
+  transition: 1s;
 
-  .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  &.active {
+    bottom: 2rem;
+  }
 
-    svg {
-      flex-shrink: 0;
-      width: 24px;
-      height: 24px;
-    }
+  h3 {
+    margin-bottom: 1rem;
+    text-transform: capitalize;
+  }
+  p {
+  }
+  .btn {
+    margin-top: 3rem;
   }
 }

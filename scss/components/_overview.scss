@@ -7,6 +7,17 @@
   text-align: center;
   color: $textLight;
 
+  &-min-max-temp {
+    display: flex;
+    justify-content: center;
+    div {
+      padding: 0 1rem;
+    }
+    span {
+      margin-left: 0.5rem;
+    }
+  }
+
   @media (max-height: 420px) {
     margin-top: 4rem;
   }
