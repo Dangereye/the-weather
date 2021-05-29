@@ -18,6 +18,10 @@ const Settings = () => {
   const [isPrecipitation, setIsPrecipitation] = useState(false);
   const [isPressure, setIsPressure] = useState(false);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     dispatch({
