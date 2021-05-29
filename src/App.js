@@ -20,7 +20,6 @@ const App = () => {
         .then((res) => {
           if (res.status === 400) {
             localStorage.clear();
-            console.log(res);
             dispatch({ type: "FORECAST", payload: null });
             dispatch({
               type: "MESSAGE",
@@ -31,7 +30,6 @@ const App = () => {
             });
             throw Error("Error");
           } else if (!res.ok) {
-            console.log(res);
             dispatch({ type: "FORECAST", payload: null });
             dispatch({
               type: "MESSAGE",
