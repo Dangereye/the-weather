@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { WeatherContext } from "../contexts/WeatherContext";
 import CurrentConditions from "../components/current_conditions/CurrentConditions";
 import Days from "../components/Days";
@@ -10,6 +10,11 @@ import DailyAstronomy from "../components/daily_weather/DailyAstronomy";
 
 const Home = () => {
   const { state } = useContext(WeatherContext);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
+
   return (
     <>
       <Header />
