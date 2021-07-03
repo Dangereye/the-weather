@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { WeatherContext } from "../../contexts/WeatherContext";
-import TimeComponent from "../shared/TimeComponent";
+// import TimeComponent from "../shared/TimeComponent";
 
 const ConditionCard = ({ item }) => {
   const { state } = useContext(WeatherContext);
