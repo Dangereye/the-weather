@@ -4,8 +4,6 @@ import TimeComponent from "../shared/TimeComponent";
 
 const ConditionCard = ({ item }) => {
   const { state } = useContext(WeatherContext);
-  const d = new Date(item.time);
-  console.log("condition card: ", d);
   return (
     <div key={item.time} className="item-card">
       <div className="temp">
@@ -19,10 +17,6 @@ const ConditionCard = ({ item }) => {
         draggable={false}
       />
       <div className="time">
-        {/* {new Date(item.time).toLocaleTimeString("en-GB", {
-          hour: "2-digit",
-          minute: "2-digit",
-        })} */}
         <TimeComponent data={item.time} />
       </div>
     </div>
