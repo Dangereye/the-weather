@@ -16,9 +16,7 @@ const ConditionCard = ({ item }) => {
         alt={item.condition.text}
         draggable={false}
       />
-      <div className="time">
-        <TimeComponent data={item.time} />
-      </div>
+      <div className="time">{/* <TimeComponent data={item.time} /> */}time</div>
     </div>
   );
 };
