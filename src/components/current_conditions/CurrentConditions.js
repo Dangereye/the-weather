@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { WeatherContext } from "../../contexts/WeatherContext";
-import DateAndTime from "../shared/DateAndTime";
+import DateComponent from "../shared/DateComponent";
+import TimeComponent from "../shared/TimeComponent";
 import ConditionGroup from "./ConditionGroup";
 
 const CurrentConditions = () => {
@@ -82,7 +83,10 @@ const CurrentConditions = () => {
     <section>
       <div className="container">
         <h1>Current Weather</h1>
-        <DateAndTime data={now.last_updated} />
+        <span>Last updated: </span>
+        <DateComponent data={now.last_updated} />
+        <span> at </span>
+        <TimeComponent data={now.last_updated} />
         <div className="groups">
           <ConditionGroup data={current.conditions} />
           <ConditionGroup data={current.temperature} />

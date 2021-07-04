@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { WeatherContext } from "../../contexts/WeatherContext";
+import TimeComponent from "../shared/TimeComponent";
 import DropletIcon from "../../icons/DropletIcon";
 
 const PrecipitationCard = ({ item }) => {
@@ -31,10 +32,7 @@ const PrecipitationCard = ({ item }) => {
       </div>
 
       <div className="time">
-        {new Date(item.time).toLocaleTimeString("en-GB", {
-          hour: "2-digit",
-          minute: "2-digit",
-        })}
+        <TimeComponent data={item.time} />
       </div>
     </div>
   );

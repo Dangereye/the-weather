@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { WeatherContext } from "../../contexts/WeatherContext";
+import TimeComponent from "../shared/TimeComponent";
 import WindIcon from "../../icons/WindIcon";
 
 const WindCard = ({ item }) => {
@@ -21,10 +22,7 @@ const WindCard = ({ item }) => {
           : `${item.wind_kph}`}
       </div>
       <div className="time">
-        {new Date(item.time).toLocaleTimeString("en-GB", {
-          hour: "2-digit",
-          minute: "2-digit",
-        })}
+        <TimeComponent data={item.time} />
       </div>
     </div>
   );

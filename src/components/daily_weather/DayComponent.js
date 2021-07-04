@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { WeatherContext } from "../../contexts/WeatherContext";
 
 const DayComponent = ({ data }) => {
-  console.log("Day Component: ", data);
   const { state, dispatch } = useContext(WeatherContext);
   const dateOptions = {
     weekday: "long",
