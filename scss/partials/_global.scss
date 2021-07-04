@@ -32,16 +32,16 @@ body {
 
 nav,
 footer {
-  padding: 1rem $desktop;
+  padding: 2rem $desktop;
 
   @media (max-width: 768px) {
-    padding: 1rem $tablet;
+    padding: 2rem $tablet;
   }
   @media (max-width: 420px) {
-    padding: 1rem $mobile;
+    padding: 2rem $mobile;
   }
   @media (max-height: 420px) {
-    padding: 1rem $mobile;
+    padding: 2rem $mobile;
   }
 }
 

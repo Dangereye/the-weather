@@ -1,14 +1,23 @@
-import React from 'react'
+import React from "react";
 
 const Footer = () => {
-    return (
-        <footer>
-            <div className="container">
-                <p className="copyright">&copy; Dangereye 2020</p>
-                <p>Powered by <a href="https://www.weatherapi.com/" title="Weather API" target='_blank' rel='noreferrer'>WeatherAPI.com</a></p>
-            </div>
-        </footer>
-    )
-}
+  return (
+    <footer>
+      <div className="container">
+        <p className="copyright">&copy; Craig Puxty 2021</p>
+        <p>
+          <a
+            href="https://www.weatherapi.com/"
+            title="Weather API"
+            target="_blank"
+            rel="noreferrer"
+          >
+            WeatherAPI.com
+          </a>
+        </p>
+      </div>
+    </footer>
+  );
+};
 
-export default Footer
+export default Footer;

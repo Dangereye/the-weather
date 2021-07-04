@@ -31,7 +31,10 @@ const Navbar = () => {
     }
   });
 
-  const bgColor = { background: background ? "#000" : "transparent" };
+  const bgColor = {
+    background: background ? "#000" : "transparent",
+    borderBottom: background ? "1px solid #333" : "none",
+  };
 
   return (
     <nav style={bgColor}>
