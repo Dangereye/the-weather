@@ -20,7 +20,7 @@ const DateAndTime = ({ data }) => {
     console.log(time);
     setCurrentDate(date);
     setCurrentTime(time);
-  });
+  }, [data]);
 
   return (
     <div className="times-and-dates">{`Last updated: ${currentDate} at ${currentTime}`}</div>
