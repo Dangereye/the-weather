@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { WeatherContext } from "../../contexts/WeatherContext";
-// import TimeComponent from "../shared/TimeComponent";
+import TimeComponent from "../shared/TimeComponent";
 
 const ConditionCard = ({ item }) => {
   const { state } = useContext(WeatherContext);
@@ -16,7 +16,9 @@ const ConditionCard = ({ item }) => {
         alt={item.condition.text}
         draggable={false}
       />
-      <div className="time">{/* <TimeComponent data={item.time} /> */}time</div>
+      <div className="time">
+        <TimeComponent data={item.time} />
+      </div>
     </div>
   );
 };

@@ -12,10 +12,11 @@ const DateAndTime = ({ data }) => {
 
   useEffect(() => {
     const updateTime = setInterval(() => {
-      const date = new Date(data).toLocaleDateString("en-GB", dateOptions);
-      const time = new Date(data).toLocaleTimeString([], timeOptions);
-      setCurrentDate(date);
-      setCurrentTime(time);
+      const date = new Date(data).toISOString();
+      const nDate = new Date(date).toLocaleDateString("en-GB", dateOptions);
+      const nTime = new Date(date).toLocaleTimeString([], timeOptions);
+      setCurrentDate(nDate);
+      setCurrentTime(nTime);
     }, 1000);
 
     setInterval(updateTime, 1000);
