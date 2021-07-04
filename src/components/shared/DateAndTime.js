@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import formatISO from "date-fns/formatISO";
 
 const DateAndTime = ({ data }) => {
   const dateOptions = {
@@ -11,20 +12,18 @@ const DateAndTime = ({ data }) => {
   const [currentTime, setCurrentTime] = useState("");
 
   useEffect(() => {
-    const updateTime = setInterval(() => {
-      const date = new Date(data).toISOString();
-      const nDate = new Date(date).toLocaleDateString("en-GB", dateOptions);
-      const nTime = new Date(date).toLocaleTimeString([], timeOptions);
-      setCurrentDate(nDate);
-      setCurrentTime(nTime);
-    }, 1000);
-
-    setInterval(updateTime, 1000);
-    return () => clearInterval(updateTime);
+    const dataDate = new Date(data).toISOString();
+    console.log(dataDate);
+    const date = formatISO(new Date(dataDate), { representation: "date" });
+    const time = formatISO(new Date(dataDate), { representation: "time" });
+    console.log(date);
+    console.log(time);
+    setCurrentDate(date);
+    setCurrentTime(time);
   });
 
   return (
-    <div className="times-and-dates">{`Last update: ${currentDate} at ${currentTime}`}</div>
+    <div className="times-and-dates">{`Last updated: ${currentDate} at ${currentTime}`}</div>
   );
 };
 
