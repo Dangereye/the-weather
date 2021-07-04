@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import formatISO from "date-fns/formatISO";
 
 const DateAndTime = ({ data }) => {
-  const dateOptions = {
-    weekday: "long",
-    month: "long",
-    day: "numeric",
-  };
-  const timeOptions = { hour12: false, hour: "2-digit", minute: "2-digit" };
+  // const dateOptions = {
+  //   weekday: "long",
+  //   month: "long",
+  //   day: "numeric",
+  // };
+  // const timeOptions = { hour12: false, hour: "2-digit", minute: "2-digit" };
   const [currentDate, setCurrentDate] = useState("");
   const [currentTime, setCurrentTime] = useState("");
 
