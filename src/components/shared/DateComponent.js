@@ -6,7 +6,11 @@ const DateComponent = ({ data }) => {
     month: "long",
     day: "numeric",
   };
-  const dateString = new Date(data).toLocaleDateString("en-GB", dateOptions);
+  const formatData = data.split(" ")[0];
+  const dateString = new Date(formatData).toLocaleDateString(
+    "en-GB",
+    dateOptions
+  );
   return <span className="times-and-dates">{dateString}</span>;
 };
 
