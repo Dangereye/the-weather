@@ -15,7 +15,7 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    if (pathname === "/settings") {
+    if (pathname !== "/") {
       setBackground(true);
     } else {
       setBackground(false);

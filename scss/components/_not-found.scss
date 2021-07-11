@@ -1,0 +1,15 @@
+.not-found {
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+
+  h2 {
+    font-size: 8rem;
+    line-height: 1;
+  }
+
+  button {
+    display: block;
+    margin-top: 4rem;
+  }
+}

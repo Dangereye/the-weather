@@ -5,6 +5,7 @@ import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import Home from "./pages/Home";
 import Settings from "./pages/Settings";
+import NotFound from "./pages/NotFound";
 import Message from "./components/layout/Message";
 import useGeoLocation from "./hooks/useGeoLocation";
 
@@ -89,6 +90,7 @@ const App = () => {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/settings" exact component={Settings} />
+          <Route path="*" component={NotFound} />
         </Switch>
         <Footer />
       </Router>
