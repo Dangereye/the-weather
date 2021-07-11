@@ -25,7 +25,7 @@ const App = () => {
               type: "MESSAGE",
               payload: {
                 isActive: true,
-                text: `Sorry, we could not find that location.`,
+                text: `Sorry, we could't find that location.`,
               },
             });
             throw Error("Error");
@@ -35,7 +35,7 @@ const App = () => {
               type: "MESSAGE",
               payload: {
                 isActive: true,
-                text: `Oops! Something went wrong.`,
+                text: `Something went wrong.`,
               },
             });
             throw Error("Error");

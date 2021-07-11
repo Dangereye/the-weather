@@ -17,7 +17,7 @@ const Message = ({ message }) => {
   };
   return (
     <div className={`message ${state.message.isActive && "active"}`}>
-      <h3>Message:</h3>
+      <h2>Oops!</h2>
       <p>{message}</p>
       <button className="btn dark" onClick={handleClick}>
         Retry
