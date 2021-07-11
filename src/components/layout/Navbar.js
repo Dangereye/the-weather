@@ -47,6 +47,7 @@ const Navbar = () => {
         <Link
           to={pathname === "/settings" ? "/" : "/settings"}
           className="settings"
+          aria-label="settings"
         >
           <FiSettings />
         </Link>
