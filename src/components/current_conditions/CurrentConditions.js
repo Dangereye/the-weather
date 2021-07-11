@@ -82,7 +82,7 @@ const CurrentConditions = () => {
   return (
     <section>
       <div className="container">
-        <h1>Current Weather</h1>
+        <h2>Current Weather</h2>
         <span>Last updated: </span>
         <DateComponent data={now.last_updated} />
         <span> at </span>

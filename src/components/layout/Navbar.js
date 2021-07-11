@@ -39,9 +39,11 @@ const Navbar = () => {
   return (
     <nav style={bgColor}>
       <div className="container">
-        <Link to="/" className="logo">
-          the weather
-        </Link>
+        <h1>
+          <Link to="/" className="logo">
+            the weather
+          </Link>
+        </h1>
         <Link
           to={pathname === "/settings" ? "/" : "/settings"}
           className="settings"
