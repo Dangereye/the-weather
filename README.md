@@ -1,30 +1,63 @@
 # The Weather
 
-Check the forecast where you are - using Geolocation. Alternatively, perform manual searches - elsewhere! Forecasts include conditions, precipitation and wind (displayed hourly) in a format that suits you. The presentation includes dynamic imagery, courtesy of Unsplash - which matches
-(somewhat reliably) current weather conditions.
+Don't get caught off guard by the weather! Check the forecast for your current location easily using Geolocation. Or, if you prefer, you can manually search for weather updates anywhere else. Forecasts are updated hourly and include details on conditions, precipitation, and wind, all presented in a format that suits you. Additionally, enjoy dynamic background imagery provided by Unsplash, which matches current weather conditions - somewhat reliably.
 
 ## Design
 
-The Weather has a minimalistic, clutter-free design with dynamic background images. I was especially pleased with the custom precipitation icon that fills by percentage during wetter days (hourly forecast). The sliders themselves could use an update - they feel a little clunky when actioned via desktop.
+The Weather boasts a minimalist and clutter-free design complemented by dynamic background images. I particularly enjoyed the custom precipitation icon, which gradually fills based on the percentage during wetter days in the hourly forecast. However, there's room for improvement in the sliders themselves, as they can feel a bit clunky when manipulated on a desktop.
 
 ## Features
 
+- Responsive layout & images
+- Bespoke SVG icons
+- Dynamic background images
+- Settings: location services, temperature, wind speed, visibility, precipitation, pressure
 - Location search
 - Geolocation
-- Unit settings
-- Dynamic background images
-- Current conditions
-- Hourly conditions, precipitation and wind
-- Three day forecast
+- Current weather conditions
+- 3 days forcast
+- Conditions
+- Precipitation
+- Wind
 - Astronomy
+
+### Conditions
+
+- Title
+- Description
+- Temperature
+- Condition icon
+- Time
+
+### Precipitation
+
+- Title
+- Description
+- Percentage chance
+- Bespoke dynamic icon
+- Volume
+- Time
+- Total daily precipitation
+
+### Wind
+
+- Title
+- Description
+- Feels like temperature
+- Bespoke wind direction icon
+- Wind speed
+- Time
+
+### Astronomy
+
+- Sun: sunrise, sunset
+- Moon: moonrise, moonset, moon phase, illumination
 
 ## Technologies
 
 - HTML5
-- CSS3
-- Sass
+- Sass / Scss
 - JavaScript ES6+
-- SVGs
 - React
 
 ## Apis
@@ -42,20 +75,3 @@ The Weather has a minimalistic, clutter-free design with dynamic background imag
 ## Design tools
 
 - Adobe Illustrator
-
-## Dependencies
-
-- @testing-library/jest-dom: 5.11.6
-- @testing-library/react: 11.2.2
-- @testing-library/user-event: 12.3.0
-- create-react-app: 4.0.3
-- react: 17.0.1
-- react-dom: 17.0.1
-- react-icons: 4.2.0
-- react-router-dom: 5.2.0
-- react-scripts: 4.0.1
-- web-vitals: 0.2.4
-
-## Setup
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
