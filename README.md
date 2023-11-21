@@ -15,11 +15,40 @@ The Weather boasts a minimalist and clutter-free design complemented by dynamic 
 - Location search
 - Geolocation
 - Current weather conditions
-- 3 days forcast
+- 3 days forecast
 - Conditions
 - Precipitation
 - Wind
 - Astronomy
+
+### Current weather
+
+- Tile
+- Last updated
+
+#### Conditions
+
+- Title
+- Cloud cover
+- Condition
+- Precipitation
+- Visibility
+
+#### Temperature
+
+- Title
+- Temperature
+- Feels like
+- Humidity
+- Pressure
+- UV index
+
+#### Wind
+
+- Title
+- Direction
+- Speed
+- Gusts
 
 ### Conditions
 
@@ -56,18 +85,19 @@ The Weather boasts a minimalist and clutter-free design complemented by dynamic 
 ## Technologies
 
 - HTML5
+- CSS3
 - Sass / Scss
 - JavaScript ES6+
 - React
 
-## Apis
+## APIs
 
 - [Weather](https://www.weatherapi.com)
 - [Unsplash](https://unsplash.com/developers)
 - Local storage
 - Geolocation
 
-## Third Party
+## Third party
 
 - React icons
 - React router
