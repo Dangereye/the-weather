@@ -6,6 +6,7 @@
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6%2B-yellow)
 ![SCSS](https://img.shields.io/badge/SCSS--CustomStyles-cc6699)
 ![Weather API](https://img.shields.io/badge/API-Weather-green)
+![Unsplash API](https://img.shields.io/badge/API-Unsplash-111111?logo=unsplash&logoColor=white)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/283ba521-58da-41c8-86d2-f82a5fa495b0/deploy-status)](https://app.netlify.com/sites/pux-the-weather/deploys)
 ![Repo size](https://img.shields.io/github/repo-size/Dangereye/the-weather)
 ![Last commit](https://img.shields.io/github/last-commit/Dangereye/the-weather)
