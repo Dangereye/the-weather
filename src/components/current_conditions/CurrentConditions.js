@@ -89,15 +89,21 @@ const CurrentConditions = () => {
     <section>
       <div className='container'>
         <h2>Current Weather</h2>
-        <span>Last updated: </span>
-        <DateComponent data={now.last_updated} />
-        <span> at </span>
-        <TimeComponent data={now.last_updated} />
-        <div className='groups'>
-          <ConditionGroup data={current.conditions} />
-          <ConditionGroup data={current.temperature} />
-          <ConditionGroup data={current.wind} />
-        </div>
+        {state.isLoading ? (
+          <Loader />
+        ) : (
+          <>
+            <span>Last updated: </span>
+            <DateComponent data={now.last_updated} />
+            <span> at </span>
+            <TimeComponent data={now.last_updated} />
+            <div className='groups'>
+              <ConditionGroup data={current.conditions} />
+              <ConditionGroup data={current.temperature} />
+              <ConditionGroup data={current.wind} />
+            </div>
+          </>
+        )}
       </div>
     </section>
   );

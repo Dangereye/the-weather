@@ -8,29 +8,31 @@ const Days = () => {
 
   const forecast = state.weather?.forecast?.forecastday;
 
-  if (!forecast || !forecast[state.day]) {
-    return <Loader />;
-  }
-
   return (
     <section className='days'>
       <div className='container'>
-        <div className='links'>
-          <span
-            className={state.day === 0 ? 'day active ' : 'day'}
-            onClick={() => dispatch({ type: 'DAY', payload: 0 })}
-          >
-            Today
-          </span>
-          <span
-            className={state.day === 1 ? 'day active' : 'day'}
-            onClick={() => dispatch({ type: 'DAY', payload: 1 })}
-          >
-            Tomorrow
-          </span>
-          <DayComponent data={forecast[2].date} />
-        </div>
-        <DateComponent data={forecast[state.day].date} />
+        {state.isLoading || !forecast || !forecast[state.day] ? (
+          <Loader />
+        ) : (
+          <>
+            <div className='links'>
+              <span
+                className={state.day === 0 ? 'day active ' : 'day'}
+                onClick={() => dispatch({ type: 'DAY', payload: 0 })}
+              >
+                Today
+              </span>
+              <span
+                className={state.day === 1 ? 'day active' : 'day'}
+                onClick={() => dispatch({ type: 'DAY', payload: 1 })}
+              >
+                Tomorrow
+              </span>
+              <DayComponent data={forecast[2].date} />
+            </div>
+            <DateComponent data={forecast[state.day].date} />
+          </>
+        )}
       </div>
     </section>
   );

@@ -18,7 +18,6 @@ const Overview = () => {
       const settings = state.settings;
 
       setLocation(state.weather.location?.name || '');
-
       if (forecastDay && current) {
         setTemp(
           settings.temp === 'celsius'
@@ -58,43 +57,37 @@ const Overview = () => {
 
   return (
     <div className='overview'>
-      {state.isLoading ? (
-        <Loader />
-      ) : state.error ? null : (
-        <>
-          <form onSubmit={handleSubmit}>
-            <input
-              className='overview-location'
-              ref={input}
-              type='text'
-              value={location}
-              onChange={(e) => {
-                setLocation(e.target.value);
-              }}
-              placeholder='New Location?'
-            />
-          </form>
+      <form onSubmit={handleSubmit}>
+        <input
+          className='overview-location'
+          ref={input}
+          type='text'
+          value={location}
+          onChange={(e) => setLocation(e.target.value)}
+          placeholder='New Location?'
+        />
+      </form>
 
-          <div className='overview-region'>
-            {region && country ? `${region}, ${country}` : 'Location unknown'}
-          </div>
+      <div className='overview-region'>
+        {state.isLoading ? <Loader /> : `${region}, ${country}`}
+      </div>
 
-          <div className='overview-temp'>{temp}</div>
+      <div className='overview-temp'>{state.isLoading ? <Loader /> : temp}</div>
 
-          <div className='overview-condition'>{conditionText}</div>
+      <div className='overview-condition'>
+        {state.isLoading ? <Loader /> : conditionText}
+      </div>
 
-          <div className='overview-min-max-temp'>
-            <div>
-              <CgPushDown />
-              <span>{minTemp}</span>
-            </div>
-            <div>
-              <CgPushUp />
-              <span>{maxTemp}</span>
-            </div>
-          </div>
-        </>
-      )}
+      <div className='overview-min-max-temp'>
+        <div>
+          <CgPushDown />
+          <span>{state.isLoading ? <Loader /> : minTemp}</span>
+        </div>
+        <div>
+          <CgPushUp />
+          <span>{state.isLoading ? <Loader /> : maxTemp}</span>
+        </div>
+      </div>
     </div>
   );
 };

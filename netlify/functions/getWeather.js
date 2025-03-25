@@ -1,5 +1,5 @@
 exports.handler = async (event) => {
-  const { location } = event.queryStringParameters;
+  const location = event.queryStringParameters.location;
 
   if (!location) {
     return {
@@ -13,6 +13,16 @@ exports.handler = async (event) => {
   try {
     const response = await fetch(url);
     const data = await response.json();
+
+    if (response.status === 400 || data.error) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({
+          error: data.error.message || 'Invalid location',
+        }),
+      };
+    }
+
     return {
       statusCode: 200,
       body: JSON.stringify(data),
@@ -20,7 +30,7 @@ exports.handler = async (event) => {
   } catch (err) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: 'Failed to fetch weather' }),
+      body: JSON.stringify({ error: 'Failed to fetch weather data' }),
     };
   }
 };

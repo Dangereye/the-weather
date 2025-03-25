@@ -14,45 +14,39 @@ const App = () => {
   const { geo } = useGeoLocation();
 
   useEffect(() => {
-    const getWeather = (location) => {
-      fetch(`/.netlify/functions/getWeather?location=${location}`)
-        .then((res) => {
-          if (res.status === 400) {
-            localStorage.clear();
-            dispatch({ type: 'FORECAST', payload: null });
-            dispatch({
-              type: 'MESSAGE',
-              payload: {
-                isActive: true,
-                text: `Sorry, we could't find that location.`,
-              },
-            });
-            throw Error('Error');
-          } else if (!res.ok) {
-            dispatch({ type: 'FORECAST', payload: null });
-            dispatch({
-              type: 'MESSAGE',
-              payload: {
-                isActive: true,
-                text: `Something went wrong.`,
-              },
-            });
-            throw Error('Error');
-          }
-          return res.json();
-        })
+    const getWeather = async (location) => {
+      try {
+        const res = await fetch(
+          `/.netlify/functions/getWeather?location=${location}`
+        );
 
-        .then((data) => {
-          dispatch({ type: 'FORECAST', payload: data });
-          dispatch({ type: 'LOADING', payload: false });
-          dispatch({ type: 'ERROR', payload: null });
-        })
+        if (!res.ok) {
+          const is404 = res.status === 400;
 
-        .catch((error) => {
-          dispatch({ type: 'ERROR', payload: error.message });
-          dispatch({ type: 'LOADING', payload: false });
-        });
+          localStorage.clear();
+          dispatch({ type: 'FORECAST', payload: null });
+          dispatch({
+            type: 'MESSAGE',
+            payload: {
+              isActive: true,
+              text: is404
+                ? "Sorry, we couldn't find that location."
+                : 'Something went wrong.',
+            },
+          });
+          return;
+        }
+
+        const data = await res.json();
+        dispatch({ type: 'FORECAST', payload: data });
+        dispatch({ type: 'ERROR', payload: null });
+      } catch (error) {
+        dispatch({ type: 'ERROR', payload: error.message });
+      } finally {
+        dispatch({ type: 'LOADING', payload: false });
+      }
     };
+
     if (state.settings.geoLocation === 'on' && geo !== null) {
       getWeather(geo);
     } else {
@@ -61,23 +55,28 @@ const App = () => {
   }, [geo, state.settings.geoLocation, state.location, dispatch]);
 
   useEffect(() => {
-    const condition = state.weather?.current?.condition?.text;
+    const fetchImage = async () => {
+      const condition = state.weather?.current?.condition?.text;
 
-    if (condition) {
-      fetch(`/.netlify/functions/getImage?query=${condition}`)
-        .then((res) => {
-          if (!res.ok) {
-            throw Error(`Failed to fetch image.`);
-          }
-          return res.json();
-        })
-        .then((data) => {
-          dispatch({ type: 'IMAGE', payload: data.urls.regular });
-        })
-        .catch((error) => {
-          dispatch({ type: 'LOADING', payload: false });
-        });
-    }
+      if (!condition) return;
+
+      try {
+        const res = await fetch(
+          `/.netlify/functions/getImage?query=${condition}`
+        );
+
+        if (!res.ok) throw new Error('Failed to fetch image');
+
+        const data = await res.json();
+        dispatch({ type: 'IMAGE', payload: data.urls.regular });
+      } catch (error) {
+        console.error('Unsplash error:', error);
+      } finally {
+        dispatch({ type: 'LOADING', payload: false });
+      }
+    };
+
+    fetchImage();
   }, [state.weather, dispatch]);
 
   return (
