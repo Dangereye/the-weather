@@ -1,31 +1,36 @@
-import React, { useContext } from "react";
-import { WeatherContext } from "../contexts/WeatherContext";
-import DateComponent from "./shared/DateComponent";
-import DayComponent from "./daily_weather/DayComponent";
-
+import React, { useContext } from 'react';
+import { WeatherContext } from '../contexts/WeatherContext';
+import DateComponent from './shared/DateComponent';
+import DayComponent from './daily_weather/DayComponent';
+import Loader from './layout/Loader';
 const Days = () => {
   const { state, dispatch } = useContext(WeatherContext);
+
+  const forecast = state.weather?.forecast?.forecastday;
+
+  if (!forecast || !forecast[state.day]) {
+    return <Loader />;
+  }
+
   return (
-    <section className="days">
-      <div className="container">
-        <div className="links">
+    <section className='days'>
+      <div className='container'>
+        <div className='links'>
           <span
-            className={state.day === 0 ? "day active " : "day"}
-            onClick={() => dispatch({ type: "DAY", payload: 0 })}
+            className={state.day === 0 ? 'day active ' : 'day'}
+            onClick={() => dispatch({ type: 'DAY', payload: 0 })}
           >
             Today
           </span>
           <span
-            className={state.day === 1 ? "day active" : "day"}
-            onClick={() => dispatch({ type: "DAY", payload: 1 })}
+            className={state.day === 1 ? 'day active' : 'day'}
+            onClick={() => dispatch({ type: 'DAY', payload: 1 })}
           >
             Tomorrow
           </span>
-          <DayComponent data={state.weather.forecast.forecastday[2].date} />
+          <DayComponent data={forecast[2].date} />
         </div>
-        <DateComponent
-          data={state.weather.forecast.forecastday[state.day].date}
-        />
+        <DateComponent data={forecast[state.day].date} />
       </div>
     </section>
   );
