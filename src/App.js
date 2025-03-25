@@ -15,9 +15,6 @@ const App = () => {
 
   useEffect(() => {
     const getWeather = (location) => {
-      // fetch(
-      //   `http://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_WEATHER_KEY}&q=${location}&days=3`
-      // )
       fetch(`/.netlify/functions/getWeather?location=${location}`)
         .then((res) => {
           if (res.status === 400) {
@@ -64,14 +61,10 @@ const App = () => {
   }, [geo, state.settings.geoLocation, state.location, dispatch]);
 
   useEffect(() => {
-    if (state.weather) {
-      console.log('Unsplash query:', state.weather.current.condition.text);
-      // fetch(
-      //   `https://api.unsplash.com/photos/random/?client_id=${process.env.REACT_APP_IMAGE_KEY}&query=${state.weather.current.condition.text}`
-      // )
-      fetch(
-        `/.netlify/functions/getImage?query=${state.weather.current.condition.text}`
-      )
+    const condition = state.weather?.current?.condition?.text;
+
+    if (condition) {
+      fetch(`/.netlify/functions/getImage?query=${condition}`)
         .then((res) => {
           if (!res.ok) {
             throw Error(`Failed to fetch image.`);
@@ -79,7 +72,6 @@ const App = () => {
           return res.json();
         })
         .then((data) => {
-          console.log('Unsplash API response:', data);
           dispatch({ type: 'IMAGE', payload: data.urls.regular });
         })
         .catch((error) => {
