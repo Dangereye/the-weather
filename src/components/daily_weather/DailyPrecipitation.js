@@ -6,14 +6,17 @@ import Loader from '../layout/Loader';
 const HourlyPrecipitation = () => {
   const { state } = useContext(WeatherContext);
   const [des, setDes] = useState('');
+
   const forecast = state.weather?.forecast?.forecastday;
   const settings = state.settings;
 
-  if (!forecast || forecast.length <= state.day || !settings) return <Loader />;
-
-  const day = forecast[state.day].day;
+  const isDataReady = forecast && forecast.length > state.day && settings;
 
   useEffect(() => {
+    if (!isDataReady) return;
+
+    const day = forecast[state.day].day;
+
     if (day.daily_will_it_rain && day.daily_will_it_snow) {
       setDes(
         `There's a ${day.daily_chance_of_rain}% chance of rain, with a ${day.daily_chance_of_snow}% chance of snow.`
@@ -27,12 +30,11 @@ const HourlyPrecipitation = () => {
     } else {
       setDes('');
     }
-  }, [
-    day.daily_chance_of_rain,
-    day.daily_chance_of_snow,
-    day.daily_will_it_rain,
-    day.daily_will_it_snow,
-  ]);
+  }, [isDataReady, forecast, state.day]);
+
+  if (!isDataReady) return <Loader />;
+
+  const day = forecast[state.day].day;
 
   return (
     <section style={{ backgroundColor: '#fff' }}>
