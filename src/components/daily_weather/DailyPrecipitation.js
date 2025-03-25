@@ -5,13 +5,13 @@ import Loader from '../layout/Loader';
 
 const HourlyPrecipitation = () => {
   const { state } = useContext(WeatherContext);
+  const [des, setDes] = useState('');
   const forecast = state.weather?.forecast?.forecastday;
   const settings = state.settings;
 
   if (!forecast || forecast.length <= state.day || !settings) return <Loader />;
 
   const day = forecast[state.day].day;
-  const [des, setDes] = useState('');
 
   useEffect(() => {
     if (day.daily_will_it_rain && day.daily_will_it_snow) {
